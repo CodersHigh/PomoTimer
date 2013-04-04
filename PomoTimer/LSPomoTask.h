@@ -28,4 +28,9 @@ static NSString *kPomodoroTimeChanged = @"PomodoroTimeChanged";
 #define PAUSE 2
 #define DONE 3
 
+@property NSDate *startDate;
+@property NSDate *endDate;
+
+- (void)resetTask;
+
 @end

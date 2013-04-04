@@ -1,5 +1,5 @@
 //
-//  LSViewController.h
+//  LSTaskViewController.h
 //  PomoTimer
 //
 //  Created by Lingostar on 12. 12. 30..
@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface LSTaskViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property int indexPathRow;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIView *recordView;
+@property (weak, nonatomic) IBOutlet UIView *taskView;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 - (IBAction)startPause:(id)sender;
-- (IBAction)stop:(id)sender;
+- (IBAction)reset:(id)sender;
+
+@property NSDictionary *todaysPomodoroDict;
 
 @end

@@ -14,7 +14,7 @@
 @implementation LSPomoCycle
 
 
-- (id)initWithType:(int)typeOfCycle;
+- (id)init;
 {
     self = [super init];
     if (self != nil){
@@ -29,53 +29,65 @@
         firstRecess.typeOfTask = RECESS;
         [pomoCycle addObject:firstRecess];
         
-        if (typeOfCycle > 0) {
-            LSPomoTask *secondPomo = [[LSPomoTask alloc] init];
-            secondPomo.taskTimeInSecond = POMODORO_TIME;
-            secondPomo.typeOfTask = POMODORO;
-            [pomoCycle addObject:secondPomo];
-            
-            LSPomoTask *secondRecess = [[LSPomoTask alloc] init];
-            secondRecess.taskTimeInSecond = RECESS_TIME;
-            secondRecess.typeOfTask = RECESS;
-            [pomoCycle addObject:secondRecess];
-        }
-        if (typeOfCycle > 1) {
-            LSPomoTask *thirdPomo = [[LSPomoTask alloc] init];
-            thirdPomo.taskTimeInSecond = POMODORO_TIME;
-            thirdPomo.typeOfTask = POMODORO;
-            [pomoCycle addObject:thirdPomo];
-            
-            LSPomoTask *thirdRecess = [[LSPomoTask alloc] init];
-            thirdRecess.taskTimeInSecond = RECESS_TIME;
-            thirdRecess.typeOfTask = RECESS;
-            [pomoCycle addObject:thirdRecess];
-        }
-        if (typeOfCycle > 2) {
-            LSPomoTask *fourthPomo = [[LSPomoTask alloc] init];
-            fourthPomo.taskTimeInSecond = POMODORO_TIME;
-            fourthPomo.typeOfTask = POMODORO;
-            [pomoCycle addObject:fourthPomo];
-            
-            LSPomoTask *intermission = [[LSPomoTask alloc] init];
-            intermission.taskTimeInSecond = INTERMISSION_TIME;
-            intermission.typeOfTask = RECESS;
-            [pomoCycle addObject:intermission];
-        }
+        LSPomoTask *secondPomo = [[LSPomoTask alloc] init];
+        secondPomo.taskTimeInSecond = POMODORO_TIME;
+        secondPomo.typeOfTask = POMODORO;
+        [pomoCycle addObject:secondPomo];
+        
+        LSPomoTask *secondRecess = [[LSPomoTask alloc] init];
+        secondRecess.taskTimeInSecond = RECESS_TIME;
+        secondRecess.typeOfTask = RECESS;
+        [pomoCycle addObject:secondRecess];
+        
+        LSPomoTask *thirdPomo = [[LSPomoTask alloc] init];
+        thirdPomo.taskTimeInSecond = POMODORO_TIME;
+        thirdPomo.typeOfTask = POMODORO;
+        [pomoCycle addObject:thirdPomo];
+        
+        LSPomoTask *thirdRecess = [[LSPomoTask alloc] init];
+        thirdRecess.taskTimeInSecond = RECESS_TIME;
+        thirdRecess.typeOfTask = RECESS;
+        [pomoCycle addObject:thirdRecess];
+        
+        
+        LSPomoTask *fourthPomo = [[LSPomoTask alloc] init];
+        fourthPomo.taskTimeInSecond = POMODORO_TIME;
+        fourthPomo.typeOfTask = POMODORO;
+        [pomoCycle addObject:fourthPomo];
+        
+        LSPomoTask *intermission = [[LSPomoTask alloc] init];
+        intermission.taskTimeInSecond = RECESS_TIME;
+        intermission.typeOfTask = RECESS;
+        [pomoCycle addObject:intermission];
         
         self.taskArray = (NSArray *)pomoCycle;
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startNextTask:) name:kPomodoroTaskDone object:nil];
-
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [_currentTask stopTask];
-    _taskArray = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
+    self.currentTask = nil;
+    self.taskArray = nil;
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self != nil){
+        self.taskArray = [aDecoder decodeObjectForKey:@"TaskArray"];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startNextTask:) name:kPomodoroTaskDone object:nil];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.taskArray forKey:@"TaskArray"];
 }
 
 - (LSPomoTask *)currentTask
@@ -84,10 +96,10 @@
         return _currentTask;
     } else {
         for (LSPomoTask *task in self.taskArray) {
-            if (task.status < DONE){
-                _currentTask = task;
-                return _currentTask;
-            }
+         if (task.status < DONE){
+             _currentTask = task;
+             return _currentTask;
+         }
         }
     }
     return nil;
@@ -99,6 +111,27 @@
     if (currentTask != nil && currentTask.status == READY){
         currentTask.status = COUNTING;
     }
+}
+
+- (void)resetCurrentTask
+{
+    LSPomoTask *currentTask = self.currentTask;
+    if (currentTask.typeOfTask == POMODORO){
+        currentTask.taskTimeInSecond = POMODORO_TIME;
+        [currentTask resetTask];
+    }
+}
+
+
+- (int)doneTaskCount
+{
+    int count = 0;
+    for (int i = 0; i < [_taskArray count]; i++) {
+        LSPomoTask *task = [_taskArray objectAtIndex:i];
+        if (task.status == DONE && task.typeOfTask == POMODORO) count++;
+    }
+    
+    return count;
 }
 
 @end

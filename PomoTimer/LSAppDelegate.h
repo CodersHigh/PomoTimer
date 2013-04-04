@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSPomoCycle.h"
 
 @interface LSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property NSMutableArray *dailyPomodoroArray;
+@property NSDictionary *todaysPomodoro;
 
 @end

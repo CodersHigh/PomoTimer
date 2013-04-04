@@ -8,13 +8,14 @@
 
 #import "LSAppDelegate.h"
 
+static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
 
 @implementation LSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"naviBar.png"] forBarMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithWhite:0.3 alpha:0.8]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navibarColor"] forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithWhite:0.5 alpha:0.8]];
     // Override point for customization after application launch.
     return YES;
 }
@@ -43,7 +44,25 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
+    
+    [NSKeyedArchiver archiveRootObject:_dailyPomodoroArray toFile:filePath];
 }
 
+- (NSDictionary *)todaysPomodoro
+{
+    NSDictionary *lastDailyPomo = [_dailyPomodoroArray lastObject];
+    if (lastDailyPomo != nil){
+        NSDate *lastPomoDate = [lastDailyPomo valueForKey:@"PomodoroDate"];
+        if (isSameDay(lastPomoDate, [NSDate date])){
+            return lastDailyPomo;
+        }
+    }
+    return nil;
+}
+
+- (void)setTodaysPomodoro:(NSDictionary *)todaysPomodoro
+{
+    [_dailyPomodoroArray addObject:todaysPomodoro];
+}
 @end
