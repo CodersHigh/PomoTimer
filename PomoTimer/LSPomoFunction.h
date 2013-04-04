@@ -8,8 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#define POMODORO_TIME 25*60
+#define RECESS_TIME 5*60
+#define INTERMISSION_TIME 30*60
+
+//Keys
 static NSString *kPomodoroDateKey = @"PomodoroDate";
 static NSString *kPomodoroCyclesKey = @"PomodoroCycle";
+
+//Notifications
+static NSString *kPomodoroTaskDone = @"PomodoroTaskDone";
+static NSString *kPomodoroTimeChanged = @"PomodoroTimeChanged";
 
 NSString *documentDirectory();
 

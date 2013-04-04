@@ -17,6 +17,16 @@ static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navibarColor"] forBarMetrics:UIBarMetricsDefault];
     [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithWhite:0.5 alpha:0.8]];
     // Override point for customization after application launch.
+    
+    NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
+        NSArray *unarchArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        _dailyPomodoroArray = [[NSMutableArray alloc] initWithArray:unarchArray];
+    } else {
+        _dailyPomodoroArray = [[NSMutableArray alloc] initWithCapacity:10];
+    }
+
     return YES;
 }
 

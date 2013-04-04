@@ -8,9 +8,6 @@
 
 #import "LSPomoCycle.h"
 
-#define POMODORO_TIME 25*60
-#define RECESS_TIME 5*60
-#define INTERMISSION_TIME 30*60
 @implementation LSPomoCycle
 
 

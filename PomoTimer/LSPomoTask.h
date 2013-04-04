@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioServices.h>
 
-static NSString *kPomodoroTaskDone = @"PomodoroTaskDone";
-static NSString *kPomodoroTimeChanged = @"PomodoroTimeChanged";
-
 @interface LSPomoTask : NSObject
 
 - (void)stopTask;
