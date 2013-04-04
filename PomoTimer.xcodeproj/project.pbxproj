@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CC1CFDC16A431090067CAAA /* PomoTimer_Button_bkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC1CFDB16A431090067CAAA /* PomoTimer_Button_bkg@2x.png */; };
 		2CC2A48516A3D0020037CF76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48416A3D0010037CF76 /* UIKit.framework */; };
 		2CC2A48716A3D0020037CF76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48616A3D0020037CF76 /* Foundation.framework */; };
 		2CC2A48916A3D0020037CF76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */; };
@@ -17,13 +16,20 @@
 		2CC2A49716A3D0020037CF76 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2A49616A3D0020037CF76 /* Default.png */; };
 		2CC2A49916A3D0020037CF76 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2A49816A3D0020037CF76 /* Default@2x.png */; };
 		2CC2A49B16A3D0020037CF76 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2A49A16A3D0020037CF76 /* Default-568h@2x.png */; };
-		2CC2A49E16A3D0020037CF76 /* LSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC2A49D16A3D0020037CF76 /* LSViewController.m */; };
-		2CC2A4A116A3D0020037CF76 /* LSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC2A49F16A3D0020037CF76 /* LSViewController.xib */; };
 		2CCD582D170D3E5100FBB699 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */; };
+		2CCD582F170D44CE00FBB699 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */; };
+		2CCD5837170D451600FBB699 /* LSPomoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5830170D451500FBB699 /* LSPomoTask.m */; };
+		2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; };
+		2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5834170D451500FBB699 /* LSTaskViewController.m */; };
+		2CCD583A170D451600FBB699 /* LSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5836170D451500FBB699 /* LSTableViewController.m */; };
+		2CCD5840170D453B00FBB699 /* naviBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583B170D453A00FBB699 /* naviBar.png */; };
+		2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */; };
+		2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */; };
+		2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583E170D453A00FBB699 /* Pomodoro_On.png */; };
+		2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583F170D453A00FBB699 /* btn@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CC1CFDB16A431090067CAAA /* PomoTimer_Button_bkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PomoTimer_Button_bkg@2x.png"; sourceTree = "<group>"; };
 		2CC2A48016A3D0010037CF76 /* PomoTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC2A48416A3D0010037CF76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CC2A48616A3D0020037CF76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,10 +43,21 @@
 		2CC2A49616A3D0020037CF76 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		2CC2A49816A3D0020037CF76 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		2CC2A49A16A3D0020037CF76 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2CC2A49C16A3D0020037CF76 /* LSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSViewController.h; sourceTree = "<group>"; };
-		2CC2A49D16A3D0020037CF76 /* LSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSViewController.m; sourceTree = "<group>"; };
-		2CC2A4A016A3D0020037CF76 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LSViewController.xib; sourceTree = "<group>"; };
 		2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2CCD5830170D451500FBB699 /* LSPomoTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoTask.m; sourceTree = "<group>"; };
+		2CCD5831170D451500FBB699 /* LSPomoCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoCycle.h; sourceTree = "<group>"; };
+		2CCD5832170D451500FBB699 /* LSPomoCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoCycle.m; sourceTree = "<group>"; };
+		2CCD5833170D451500FBB699 /* LSTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTaskViewController.h; sourceTree = "<group>"; };
+		2CCD5834170D451500FBB699 /* LSTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTaskViewController.m; sourceTree = "<group>"; };
+		2CCD5835170D451500FBB699 /* LSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTableViewController.h; sourceTree = "<group>"; };
+		2CCD5836170D451500FBB699 /* LSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTableViewController.m; sourceTree = "<group>"; };
+		2CCD583B170D453A00FBB699 /* naviBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviBar.png; sourceTree = "<group>"; };
+		2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Dimmed.png; sourceTree = "<group>"; };
+		2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Off.png; sourceTree = "<group>"; };
+		2CCD583E170D453A00FBB699 /* Pomodoro_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_On.png; sourceTree = "<group>"; };
+		2CCD583F170D453A00FBB699 /* btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn@2x.png"; sourceTree = "<group>"; };
+		2CCD5845170D45BC00FBB699 /* LSPomoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoTask.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +78,6 @@
 		2CC2A47516A3D0010037CF76 = {
 			isa = PBXGroup;
 			children = (
-				2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */,
 				2CC2A48A16A3D0020037CF76 /* PomoTimer */,
 				2CC2A48316A3D0010037CF76 /* Frameworks */,
 				2CC2A48116A3D0010037CF76 /* Products */,
@@ -79,6 +95,7 @@
 		2CC2A48316A3D0010037CF76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */,
 				2CC2A48416A3D0010037CF76 /* UIKit.framework */,
 				2CC2A48616A3D0020037CF76 /* Foundation.framework */,
 				2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */,
@@ -89,11 +106,17 @@
 		2CC2A48A16A3D0020037CF76 /* PomoTimer */ = {
 			isa = PBXGroup;
 			children = (
+				2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */,
 				2CC2A49316A3D0020037CF76 /* LSAppDelegate.h */,
 				2CC2A49416A3D0020037CF76 /* LSAppDelegate.m */,
-				2CC2A49C16A3D0020037CF76 /* LSViewController.h */,
-				2CC2A49D16A3D0020037CF76 /* LSViewController.m */,
-				2CC2A49F16A3D0020037CF76 /* LSViewController.xib */,
+				2CCD5845170D45BC00FBB699 /* LSPomoTask.h */,
+				2CCD5830170D451500FBB699 /* LSPomoTask.m */,
+				2CCD5831170D451500FBB699 /* LSPomoCycle.h */,
+				2CCD5832170D451500FBB699 /* LSPomoCycle.m */,
+				2CCD5833170D451500FBB699 /* LSTaskViewController.h */,
+				2CCD5834170D451500FBB699 /* LSTaskViewController.m */,
+				2CCD5835170D451500FBB699 /* LSTableViewController.h */,
+				2CCD5836170D451500FBB699 /* LSTableViewController.m */,
 				2CC2A48B16A3D0020037CF76 /* Supporting Files */,
 			);
 			path = PomoTimer;
@@ -102,7 +125,11 @@
 		2CC2A48B16A3D0020037CF76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2CC1CFDB16A431090067CAAA /* PomoTimer_Button_bkg@2x.png */,
+				2CCD583B170D453A00FBB699 /* naviBar.png */,
+				2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */,
+				2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */,
+				2CCD583E170D453A00FBB699 /* Pomodoro_On.png */,
+				2CCD583F170D453A00FBB699 /* btn@2x.png */,
 				2CC2A48C16A3D0020037CF76 /* PomoTimer-Info.plist */,
 				2CC2A48D16A3D0020037CF76 /* InfoPlist.strings */,
 				2CC2A49016A3D0020037CF76 /* main.m */,
@@ -170,8 +197,12 @@
 				2CC2A49716A3D0020037CF76 /* Default.png in Resources */,
 				2CC2A49916A3D0020037CF76 /* Default@2x.png in Resources */,
 				2CC2A49B16A3D0020037CF76 /* Default-568h@2x.png in Resources */,
-				2CC2A4A116A3D0020037CF76 /* LSViewController.xib in Resources */,
-				2CC1CFDC16A431090067CAAA /* PomoTimer_Button_bkg@2x.png in Resources */,
+				2CCD582F170D44CE00FBB699 /* MainStoryboard.storyboard in Resources */,
+				2CCD5840170D453B00FBB699 /* naviBar.png in Resources */,
+				2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */,
+				2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */,
+				2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */,
+				2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +215,10 @@
 			files = (
 				2CC2A49116A3D0020037CF76 /* main.m in Sources */,
 				2CC2A49516A3D0020037CF76 /* LSAppDelegate.m in Sources */,
-				2CC2A49E16A3D0020037CF76 /* LSViewController.m in Sources */,
+				2CCD5837170D451600FBB699 /* LSPomoTask.m in Sources */,
+				2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */,
+				2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */,
+				2CCD583A170D451600FBB699 /* LSTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,14 +231,6 @@
 				2CC2A48E16A3D0020037CF76 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2CC2A49F16A3D0020037CF76 /* LSViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CC2A4A016A3D0020037CF76 /* en */,
-			);
-			name = LSViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -8,17 +8,14 @@
 
 #import "LSAppDelegate.h"
 
-#import "LSViewController.h"
 
 @implementation LSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"naviBar.png"] forBarMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithWhite:0.3 alpha:0.8]];
     // Override point for customization after application launch.
-    self.viewController = [[LSViewController alloc] initWithNibName:@"LSViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
