@@ -10,14 +10,7 @@
 
 @interface LSTaskViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIView *recordView;
-@property (weak, nonatomic) IBOutlet UIView *taskView;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
-
-- (IBAction)startPause:(id)sender;
-- (IBAction)reset:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIScrollView *taskScrollView;
 @property NSDictionary *todaysPomodoroDict;
 
 @end

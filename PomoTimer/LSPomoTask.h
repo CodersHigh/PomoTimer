@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioServices.h>
 
-@interface LSPomoTask : NSObject
-
-- (void)stopTask;
+@interface LSPomoTask : NSObject <NSCoding>
 
 @property int taskTimeInSecond;
 
@@ -25,8 +23,11 @@
 #define PAUSE 2
 #define DONE 3
 
+@property (nonatomic, retain) NSString *taskName;
 @property NSDate *startDate;
 @property NSDate *endDate;
+
+- (NSString *)periodString;
 
 - (void)resetTask;
 

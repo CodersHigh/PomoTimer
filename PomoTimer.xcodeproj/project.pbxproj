@@ -24,16 +24,10 @@
 		2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */; };
 		2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */; };
 		2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583E170D453A00FBB699 /* Pomodoro_On.png */; };
-		2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583F170D453A00FBB699 /* btn@2x.png */; };
 		2CCD5848170D533800FBB699 /* LSPomoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5847170D533800FBB699 /* LSPomoFunction.m */; };
-		2CCD584D170D53A100FBB699 /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
 		2CCD584E170D53A100FBB699 /* LSHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */; };
 		2CCD5851170D543600FBB699 /* LSNumberPushingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5850170D543600FBB699 /* LSNumberPushingView.m */; };
 		2CCD5854170D544300FBB699 /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */; };
-		2CCD5856170D549F00FBB699 /* navibarColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5855170D549F00FBB699 /* navibarColor.png */; };
-		2CCD585A170D54AC00FBB699 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5857170D54AB00FBB699 /* history.png */; };
-		2CCD585B170D54AC00FBB699 /* colon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5858170D54AB00FBB699 /* colon.png */; };
-		2CCD585C170D54AC00FBB699 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5859170D54AB00FBB699 /* bar.png */; };
 		2CCD5867170D54D600FBB699 /* cycle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585D170D54D500FBB699 /* cycle_0.png */; };
 		2CCD5868170D54D600FBB699 /* cycle_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585E170D54D500FBB699 /* cycle_1.png */; };
 		2CCD5869170D54D600FBB699 /* cycle_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585F170D54D500FBB699 /* cycle_2.png */; };
@@ -56,6 +50,21 @@
 		2CCD5885170D54E600FBB699 /* num_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD587A170D54E600FBB699 /* num_9.png */; };
 		2CCD5886170D54E600FBB699 /* num_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD587B170D54E600FBB699 /* num_shadow.png */; };
 		2CCD5888170D57E600FBB699 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD5887170D57E600FBB699 /* QuartzCore.framework */; };
+		2CCD588C170DAF3C00FBB699 /* RecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588B170DAF3C00FBB699 /* RecordView.xib */; };
+		2CCD5898170DB02C00FBB699 /* button_reset_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */; };
+		2CCD5899170DB02C00FBB699 /* panel_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588E170DB02B00FBB699 /* panel_default@2x.png */; };
+		2CCD589A170DB02C00FBB699 /* panel_pomo_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */; };
+		2CCD589B170DB02C00FBB699 /* panel_recess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */; };
+		2CCD589C170DB02C00FBB699 /* point_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5891170DB02B00FBB699 /* point_black@2x.png */; };
+		2CCD589D170DB02C00FBB699 /* point_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5892170DB02B00FBB699 /* point_red@2x.png */; };
+		2CCD589E170DB02C00FBB699 /* button_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5893170DB02C00FBB699 /* button_history@2x.png */; };
+		2CCD589F170DB02C00FBB699 /* button_reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5894170DB02C00FBB699 /* button_reset@2x.png */; };
+		2CCD58A0170DB02C00FBB699 /* button_todo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5895170DB02C00FBB699 /* button_todo@2x.png */; };
+		2CCD58A1170DB02C00FBB699 /* status_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5896170DB02C00FBB699 /* status_pause@2x.png */; };
+		2CCD58A2170DB02C00FBB699 /* status_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5897170DB02C00FBB699 /* status_play@2x.png */; };
+		2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */; };
+		2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */; };
+		2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +91,6 @@
 		2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Dimmed.png; sourceTree = "<group>"; };
 		2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Off.png; sourceTree = "<group>"; };
 		2CCD583E170D453A00FBB699 /* Pomodoro_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_On.png; sourceTree = "<group>"; };
-		2CCD583F170D453A00FBB699 /* btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn@2x.png"; sourceTree = "<group>"; };
 		2CCD5845170D45BC00FBB699 /* LSPomoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoTask.h; sourceTree = "<group>"; };
 		2CCD5846170D533800FBB699 /* LSPomoFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoFunction.h; sourceTree = "<group>"; };
 		2CCD5847170D533800FBB699 /* LSPomoFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoFunction.m; sourceTree = "<group>"; };
@@ -94,10 +102,6 @@
 		2CCD5850170D543600FBB699 /* LSNumberPushingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSNumberPushingView.m; sourceTree = "<group>"; };
 		2CCD5852170D544300FBB699 /* UIViewController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Storyboard.h"; sourceTree = "<group>"; };
 		2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Storyboard.m"; sourceTree = "<group>"; };
-		2CCD5855170D549F00FBB699 /* navibarColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navibarColor.png; sourceTree = "<group>"; };
-		2CCD5857170D54AB00FBB699 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
-		2CCD5858170D54AB00FBB699 /* colon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colon.png; sourceTree = "<group>"; };
-		2CCD5859170D54AB00FBB699 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		2CCD585D170D54D500FBB699 /* cycle_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_0.png; sourceTree = "<group>"; };
 		2CCD585E170D54D500FBB699 /* cycle_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_1.png; sourceTree = "<group>"; };
 		2CCD585F170D54D500FBB699 /* cycle_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_2.png; sourceTree = "<group>"; };
@@ -120,6 +124,22 @@
 		2CCD587A170D54E600FBB699 /* num_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_9.png; sourceTree = "<group>"; };
 		2CCD587B170D54E600FBB699 /* num_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_shadow.png; sourceTree = "<group>"; };
 		2CCD5887170D57E600FBB699 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2CCD588B170DAF3C00FBB699 /* RecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordView.xib; sourceTree = "<group>"; };
+		2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_reset_enable@2x.png"; sourceTree = "<group>"; };
+		2CCD588E170DB02B00FBB699 /* panel_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_default@2x.png"; sourceTree = "<group>"; };
+		2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_pomo_pause@2x.png"; sourceTree = "<group>"; };
+		2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_recess@2x.png"; sourceTree = "<group>"; };
+		2CCD5891170DB02B00FBB699 /* point_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point_black@2x.png"; sourceTree = "<group>"; };
+		2CCD5892170DB02B00FBB699 /* point_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point_red@2x.png"; sourceTree = "<group>"; };
+		2CCD5893170DB02C00FBB699 /* button_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_history@2x.png"; sourceTree = "<group>"; };
+		2CCD5894170DB02C00FBB699 /* button_reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_reset@2x.png"; sourceTree = "<group>"; };
+		2CCD5895170DB02C00FBB699 /* button_todo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_todo@2x.png"; sourceTree = "<group>"; };
+		2CCD5896170DB02C00FBB699 /* status_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_pause@2x.png"; sourceTree = "<group>"; };
+		2CCD5897170DB02C00FBB699 /* status_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_play@2x.png"; sourceTree = "<group>"; };
+		2CCD58A3170DBDBC00FBB699 /* LSTimerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTimerButton.h; sourceTree = "<group>"; };
+		2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTimerButton.m; sourceTree = "<group>"; };
+		2CCD58A6170DBF2200FBB699 /* UIImage+ColorAtPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorAtPixel.h"; sourceTree = "<group>"; };
+		2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,23 +190,20 @@
 		2CC2A48A16A3D0020037CF76 /* PomoTimer */ = {
 			isa = PBXGroup;
 			children = (
+				2CCD588A170DAF1C00FBB699 /* View */,
+				2CCD5889170DAF0A00FBB699 /* Model */,
 				2CCD5846170D533800FBB699 /* LSPomoFunction.h */,
 				2CCD5847170D533800FBB699 /* LSPomoFunction.m */,
 				2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */,
+				2CCD588B170DAF3C00FBB699 /* RecordView.xib */,
 				2CC2A49316A3D0020037CF76 /* LSAppDelegate.h */,
 				2CC2A49416A3D0020037CF76 /* LSAppDelegate.m */,
-				2CCD5845170D45BC00FBB699 /* LSPomoTask.h */,
-				2CCD5830170D451500FBB699 /* LSPomoTask.m */,
-				2CCD5831170D451500FBB699 /* LSPomoCycle.h */,
-				2CCD5832170D451500FBB699 /* LSPomoCycle.m */,
 				2CCD5833170D451500FBB699 /* LSTaskViewController.h */,
 				2CCD5834170D451500FBB699 /* LSTaskViewController.m */,
 				2CCD5849170D53A000FBB699 /* LSHistoryDetailViewController.h */,
 				2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */,
 				2CCD584B170D53A000FBB699 /* LSHistoryListViewController.h */,
 				2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */,
-				2CCD584F170D543600FBB699 /* LSNumberPushingView.h */,
-				2CCD5850170D543600FBB699 /* LSNumberPushingView.m */,
 				2CCD5852170D544300FBB699 /* UIViewController+Storyboard.h */,
 				2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */,
 				2CC2A48B16A3D0020037CF76 /* Supporting Files */,
@@ -197,11 +214,17 @@
 		2CC2A48B16A3D0020037CF76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2CCD5855170D549F00FBB699 /* navibarColor.png */,
-				2CCD5857170D54AB00FBB699 /* history.png */,
-				2CCD5858170D54AB00FBB699 /* colon.png */,
-				2CCD5859170D54AB00FBB699 /* bar.png */,
-				2CCD583F170D453A00FBB699 /* btn@2x.png */,
+				2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */,
+				2CCD588E170DB02B00FBB699 /* panel_default@2x.png */,
+				2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */,
+				2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */,
+				2CCD5891170DB02B00FBB699 /* point_black@2x.png */,
+				2CCD5892170DB02B00FBB699 /* point_red@2x.png */,
+				2CCD5893170DB02C00FBB699 /* button_history@2x.png */,
+				2CCD5894170DB02C00FBB699 /* button_reset@2x.png */,
+				2CCD5895170DB02C00FBB699 /* button_todo@2x.png */,
+				2CCD5896170DB02C00FBB699 /* status_pause@2x.png */,
+				2CCD5897170DB02C00FBB699 /* status_play@2x.png */,
 				2CCD585D170D54D500FBB699 /* cycle_0.png */,
 				2CCD585E170D54D500FBB699 /* cycle_1.png */,
 				2CCD585F170D54D500FBB699 /* cycle_2.png */,
@@ -235,6 +258,30 @@
 				2CC2A49A16A3D0020037CF76 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CCD5889170DAF0A00FBB699 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CCD5845170D45BC00FBB699 /* LSPomoTask.h */,
+				2CCD5830170D451500FBB699 /* LSPomoTask.m */,
+				2CCD5831170D451500FBB699 /* LSPomoCycle.h */,
+				2CCD5832170D451500FBB699 /* LSPomoCycle.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2CCD588A170DAF1C00FBB699 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CCD58A6170DBF2200FBB699 /* UIImage+ColorAtPixel.h */,
+				2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */,
+				2CCD584F170D543600FBB699 /* LSNumberPushingView.h */,
+				2CCD5850170D543600FBB699 /* LSNumberPushingView.m */,
+				2CCD58A3170DBDBC00FBB699 /* LSTimerButton.h */,
+				2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,11 +344,6 @@
 				2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */,
 				2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */,
 				2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */,
-				2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */,
-				2CCD5856170D549F00FBB699 /* navibarColor.png in Resources */,
-				2CCD585A170D54AC00FBB699 /* history.png in Resources */,
-				2CCD585B170D54AC00FBB699 /* colon.png in Resources */,
-				2CCD585C170D54AC00FBB699 /* bar.png in Resources */,
 				2CCD5867170D54D600FBB699 /* cycle_0.png in Resources */,
 				2CCD5868170D54D600FBB699 /* cycle_1.png in Resources */,
 				2CCD5869170D54D600FBB699 /* cycle_2.png in Resources */,
@@ -323,6 +365,18 @@
 				2CCD5884170D54E600FBB699 /* num_8.png in Resources */,
 				2CCD5885170D54E600FBB699 /* num_9.png in Resources */,
 				2CCD5886170D54E600FBB699 /* num_shadow.png in Resources */,
+				2CCD588C170DAF3C00FBB699 /* RecordView.xib in Resources */,
+				2CCD5898170DB02C00FBB699 /* button_reset_enable@2x.png in Resources */,
+				2CCD5899170DB02C00FBB699 /* panel_default@2x.png in Resources */,
+				2CCD589A170DB02C00FBB699 /* panel_pomo_pause@2x.png in Resources */,
+				2CCD589B170DB02C00FBB699 /* panel_recess@2x.png in Resources */,
+				2CCD589C170DB02C00FBB699 /* point_black@2x.png in Resources */,
+				2CCD589D170DB02C00FBB699 /* point_red@2x.png in Resources */,
+				2CCD589E170DB02C00FBB699 /* button_history@2x.png in Resources */,
+				2CCD589F170DB02C00FBB699 /* button_reset@2x.png in Resources */,
+				2CCD58A0170DB02C00FBB699 /* button_todo@2x.png in Resources */,
+				2CCD58A1170DB02C00FBB699 /* status_pause@2x.png in Resources */,
+				2CCD58A2170DB02C00FBB699 /* status_play@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,10 +393,12 @@
 				2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */,
 				2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */,
 				2CCD5848170D533800FBB699 /* LSPomoFunction.m in Sources */,
-				2CCD584D170D53A100FBB699 /* LSHistoryDetailViewController.m in Sources */,
 				2CCD584E170D53A100FBB699 /* LSHistoryListViewController.m in Sources */,
 				2CCD5851170D543600FBB699 /* LSNumberPushingView.m in Sources */,
 				2CCD5854170D544300FBB699 /* UIViewController+Storyboard.m in Sources */,
+				2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */,
+				2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */,
+				2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

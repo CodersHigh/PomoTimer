@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 45, 38, 29)];
+    /*_cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 45, 38, 29)];
     _cycleView.numType = CYCLE_NUM;
     
     [self.historyRecordView addSubview:_cycleView];
@@ -56,7 +56,7 @@
             }
             pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
         }
-    }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning

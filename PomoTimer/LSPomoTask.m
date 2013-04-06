@@ -21,6 +21,7 @@
     self = [super init];
     if (self != nil){
         _status = READY;
+        self.taskName = @"Non Title.";
         [self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
     }
     return self;
@@ -36,6 +37,7 @@
         self.startDate = [aDecoder decodeObjectForKey:@"StartDate"];
         self.endDate = [aDecoder decodeObjectForKey:@"EndDate"];
         int unarchStatus = [aDecoder decodeIntegerForKey:@"Status"];
+        self.taskName = [aDecoder decodeObjectForKey:@"TaskName"];
         
         if (unarchStatus == COUNTING){
             if (isSameDay(_startDate, [NSDate date])) {
@@ -59,11 +61,12 @@
     [aCoder encodeInteger:_status forKey:@"Status"];
     [aCoder encodeObject:_startDate forKey:@"StartDate"];
     [aCoder encodeObject:_endDate forKey:@"EndDate"];
+    [aCoder encodeObject:_taskName forKey:@"TaskName"];
 }
 
 - (NSString *)description
 {
-    NSString *descString = [NSString stringWithFormat:@"Type = %d , TimeLeft = %d\r\n Status = %d\r\n StartDate = %@\r\n EndDate = %@", _typeOfTask, _taskTimeInSecond, _status, _startDate, _endDate];
+    NSString *descString = [NSString stringWithFormat:@"Type = %d , Name = %@\r\n TimeLeft = %d\r\n Status = %d\r\n StartDate = %@\r\n EndDate = %@", _typeOfTask, _taskName, _taskTimeInSecond, _status, _startDate, _endDate];
     
     return descString;
 }
@@ -94,6 +97,8 @@
     
     switch (newValue) {
         case READY:
+            self.taskTimeInSecond = POMODORO_TIME;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTimeChanged object:self];
             break;
         case COUNTING:
             [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTimeChanged object:self];
@@ -106,6 +111,7 @@
         case PAUSE:
             [_pomodoroTimer invalidate];
             _pomodoroTimer = nil;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTimeChanged object:self];
             break;
             
         case DONE:
@@ -140,5 +146,19 @@
     self.status = READY;
     self.startDate = nil;
     self.endDate = nil;
+}
+
+- (NSString *)periodString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"KST"]];
+    
+    NSString *startDateString = [dateFormatter stringFromDate:self.startDate] == nil ? @"READY" : [dateFormatter stringFromDate:self.startDate];
+    NSString *endDateString = [dateFormatter stringFromDate:self.endDate] == nil ? @"" : [dateFormatter stringFromDate:self.endDate];
+    
+    NSString *periodString = [NSString stringWithFormat:@"%@ ~ %@",startDateString, endDateString];
+    
+    return periodString;
 }
 @end

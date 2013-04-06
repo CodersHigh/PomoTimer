@@ -13,8 +13,14 @@
 
 - (void)resetCurrentTask;
 - (int)doneTaskCount;
+- (int)startedTaskCount;
 
-@property NSArray *taskArray;
+- (BOOL)isTaskDone:(int)index;
+- (void)changeTaskName:(NSString *)newName atTaskIndex:(int)index;
+
+@property NSArray *pomoArray;
+@property NSArray *recessArray;
+
 @property LSPomoTask *currentTask;
 
 @end

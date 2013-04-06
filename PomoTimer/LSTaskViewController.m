@@ -10,18 +10,21 @@
 #import "LSPomoCycle.h"
 #import "LSAppDelegate.h"
 #import "LSNumberPushingView.h"
+#import "LSTimerButton.h"
 
-@interface LSTaskViewController ()
+@interface LSTaskViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     LSPomoCycle *_pomoCycle;
     NSMutableArray *_pomoCycleArray;
     
-    LSNumberPushingView *_cycleView;
-    LSNumberPushingView *_minute10Unit;
-    LSNumberPushingView *_minute1Unit;
-    LSNumberPushingView *_second10Unit;
-    LSNumberPushingView *_second1Unit;
+    UIView *_timerView;
+    LSTimerButton *_pomoTimerButton;
+    UIButton *_resetButton;
     
+    UIView *_recordView;
+    LSNumberPushingView *_cycleView;
+    
+    UITableView *_todaysHistoryTableView;
 }
 @end
 
@@ -48,67 +51,53 @@
         self.todaysPomodoroDict = todaysNewPomoDict;
         appDelegate.todaysPomodoro = self.todaysPomodoroDict;
     }
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(counterUpdate:) name:kPomodoroTimeChanged object:nil];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pomodoroUpdate:) name:kPomodoroTaskDone object:nil];
     
     [self pomodoroUpdate:nil];
-    [self buttonUpdate];
-    [self counterUpdate:nil];
 }
 
 - (void)viewInitialize
 {
-    _cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 35, 38, 29) numType:CYCLE_NUM];
+    self.taskScrollView.scrollEnabled = YES;
+    
+    _timerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 550)];
+ 
+    _pomoTimerButton = [[LSTimerButton alloc] initWithFrame:CGRectMake(0,200,320, 320)];
+    [_pomoTimerButton addTarget:self action:@selector(startPause) forControlEvents:UIControlEventTouchUpInside];
+    [_timerView addSubview:_pomoTimerButton];
+    
+    _resetButton = [[UIButton alloc] initWithFrame:CGRectMake(240, 510, 60, 30)];
+    [_resetButton setBackgroundImage:[UIImage imageNamed:@"button_reset"] forState:UIControlStateNormal];
+    [_resetButton addTarget:self action:@selector(reset:) forControlEvents:UIControlEventTouchUpInside];
+    [_timerView addSubview:_resetButton];
+    
+    [self.taskScrollView addSubview:_timerView];
+    
+    UINib *recordNib = [UINib nibWithNibName:@"RecordView" bundle:nil];
+    NSArray *views = [recordNib instantiateWithOwner:self options:nil];
+    _recordView = [views lastObject];
+    _recordView.frame = CGRectMake(0, 20, 320, 60);
+    
+    _cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 12, 38, 29) numType:CYCLE_NUM];
     _cycleView.maxNum = 9;
-    [self.recordView addSubview:_cycleView];
+    [_recordView addSubview:_cycleView];
     
-    _minute10Unit = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(32, 40, 55, 72) numType:TIMER_NUM];
-    _minute1Unit = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(90, 40, 55, 72) numType:TIMER_NUM];
+    [self.taskScrollView addSubview:_recordView];
     
-    _minute10Unit.maxNum = 5;
-    _minute1Unit.maxNum = 9;
+    _todaysHistoryTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 10) style:UITableViewStylePlain];
+    _todaysHistoryTableView.scrollEnabled = NO;
+    _todaysHistoryTableView.dataSource = self;
+    _todaysHistoryTableView.delegate = self;
+    [_todaysHistoryTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"DetailCell"];
     
-    _second10Unit = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(170, 40, 55, 72) numType:TIMER_NUM];
-    _second1Unit = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(227, 40, 55, 72) numType:TIMER_NUM];
-    
-    _second10Unit.maxNum = 5;
-    _second1Unit.maxNum = 9;
-    
-    [self.taskView addSubview:_minute10Unit];
-    [self.taskView addSubview:_minute1Unit];
-    [self.taskView addSubview:_second10Unit];
-    [self.taskView addSubview:_second1Unit];
-    
-    UIImageView *colon = [[UIImageView alloc] initWithFrame:CGRectMake(152, 40, 12, 72)];
-    colon.image =[UIImage imageNamed:@"colon"];
-    
-    [self.taskView addSubview:colon];
+    [self.taskScrollView addSubview:_todaysHistoryTableView];
+
 }
 
-- (void)viewWillAppear:(BOOL)animated
+-(LSAppDelegate *)appDelegate
 {
-    [super viewWillAppear:animated];
-    NSString *dateString = [NSString stringWithFormat:@"%d월 %d일의 작업", monthOfDate([NSDate date]),dayOfDate([NSDate date])];
-    self.dateLabel.text = dateString;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    //NSLog(@"indexPathRow = %d", self.indexPathRow);
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTimeChanged object:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return [[UIApplication sharedApplication] delegate];
 }
 
 - (void)createNewPomoCycle
@@ -123,68 +112,86 @@
     [self updatePomodoroImageView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateWorkTitle];
+}
 
-- (IBAction)startPause:(id)sender {
-    
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self updateViewLayout];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)startPause
+{
     LSPomoTask *currentTask = _pomoCycle.currentTask;
     
     int currentStatus = currentTask.status;
     
-    //For Debuging - Of No Use
-    int currentTime = currentTask.taskTimeInSecond;
-    //
-    
-    if (currentStatus == READY || currentStatus == PAUSE){
-        currentTask.status = COUNTING;
-    } else if (currentStatus == COUNTING){
-        currentTask.status = PAUSE;
-    }
-    
-    [self buttonUpdate];
-}
-
-- (IBAction)reset:(id)sender {
-    [_pomoCycle resetCurrentTask];
-    [self buttonUpdate];
-}
-
-- (void)buttonUpdate
-{
-    int currentStatus = _pomoCycle.currentTask.status;
-    NSString *buttonLabel;
     switch (currentStatus) {
         case READY:
-            buttonLabel = @"START";
-            break;
-        case COUNTING:
-            buttonLabel = @"PAUSE";
+            currentTask.status = COUNTING;
             break;
         case PAUSE:
-            buttonLabel = @"RESUME";
+            currentTask.status = COUNTING;
+            break;
+        case COUNTING:
+            currentTask.status = PAUSE;
+            break;
+        default:
             break;
     }
     
-    [self.startButton setTitle:buttonLabel forState:UIControlStateNormal];
+    [_todaysHistoryTableView reloadData];
+    [self updateViewLayout];
+    [self updateTimerImageView];
 }
 
-
-- (void)counterUpdate:(NSNotification *)notification
+- (IBAction)reset:(id)sender
 {
-    LSPomoTask *currentTask;
-    if (notification != nil){
-        currentTask = [notification object];
-    } else {
-        currentTask = _pomoCycle.currentTask;
+    LSPomoTask *currentTask = _pomoCycle.currentTask;
+    if (currentTask.typeOfTask == POMODORO) {
+        [_pomoCycle resetCurrentTask];
+        [self updateTimerImageView];
+        [_todaysHistoryTableView reloadData];
     }
-    int timesLeft = currentTask.taskTimeInSecond;
-    int taskMinute = timesLeft/60;
-    int taskSecond = timesLeft%60;
-    
-    _minute10Unit.targetPanelNum = taskMinute/10;
-    _minute1Unit.targetPanelNum = taskMinute%10;
-    _second10Unit.targetPanelNum = taskSecond/10;
-    _second1Unit.targetPanelNum = taskSecond%10;
 }
+
+- (void)updateWorkTitle
+{
+    LSPomoTask *currentTask = _pomoCycle.currentTask;
+    self.navigationItem.title = currentTask.taskName;
+}
+
+- (void)updateViewLayout
+{
+    float yPosition = 0;
+    _timerView.frame = CGRectMake(0, yPosition-170, 320, 550);
+    yPosition += 380;
+    _recordView.frame = CGRectMake(0, yPosition, 320, 60);
+    yPosition += 60;
+    float tableViewHeight = _todaysHistoryTableView.contentSize.height;
+    if (tableViewHeight > 0){
+        _todaysHistoryTableView.frame = CGRectMake(0, yPosition, 320, tableViewHeight);
+    }
+    yPosition += tableViewHeight;
+    self.taskScrollView.contentSize = CGSizeMake(320, yPosition);
+}
+
 
 - (void)pomodoroUpdate:(NSNotification *)notification
 {
@@ -193,34 +200,123 @@
         [self updatePomodoroImageView];
     }
     
-    
     //뽀모도로 사이클이 끝난 것이므로 새로운 사이클을 만들어야 한다. AppDelegate에 넣는 것도 잊지말고.
     LSPomoTask *newTask = _pomoCycle.currentTask;
     if (newTask == nil){
         [self createNewPomoCycle];
         _pomoCycle.currentTask.status = COUNTING;
     }
+    
+    [self updateTimerImageView];
+    [_todaysHistoryTableView reloadData];
+    [self updateViewLayout];
+    [self updateWorkTitle];
 }
 
 - (void)updatePomodoroImageView
 {
     LSPomoTask *task;
     
-    for (int i = 0; i < [_pomoCycle.taskArray count]; i++) {
-        task = [_pomoCycle.taskArray objectAtIndex:i];
-        if (task.typeOfTask == POMODORO) {
-            UIImageView *pomodoroImageView = (UIImageView *)[self.recordView viewWithTag:(500+i)];
-            NSString *pomodoroImageName;
-            switch (task.status) {
-                case READY: case PAUSE: case COUNTING:
-                    pomodoroImageName = @"Pomodoro_Off";
-                    break;
-                case DONE:
-                    pomodoroImageName = @"Pomodoro_On";
-                    break;
-            }
-            pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
+    for (int i = 0; i < [_pomoCycle.pomoArray count]; i++) {
+        task = [_pomoCycle.pomoArray objectAtIndex:i];
+        
+        UIImageView *pomodoroImageView = (UIImageView *)[_recordView viewWithTag:(500+i)];
+        UILabel *pomodoroNumberLabel = (UILabel *)[_recordView viewWithTag:(400+i)];
+        NSString *pomodoroImageName;
+        switch (task.status) {
+            case READY: case PAUSE: case COUNTING:
+                pomodoroImageName = @"Pomodoro_Off";
+                pomodoroNumberLabel.font = [UIFont systemFontOfSize:8];
+                pomodoroNumberLabel.textColor = [UIColor lightGrayColor];
+                break;
+            case DONE:
+                pomodoroImageName = @"Pomodoro_On";
+                pomodoroNumberLabel.font = [UIFont boldSystemFontOfSize:8];
+                pomodoroNumberLabel.textColor = [UIColor darkGrayColor];
+                break;
+                
         }
+        pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
+        
     }
 }
+
+- (void)updateTimerImageView
+{
+    LSPomoTask *currentTask = _pomoCycle.currentTask;
+    [_pomoTimerButton updateTimerImage:currentTask];
+    
+    if (currentTask.typeOfTask == POMODORO) {
+        switch (currentTask.status) {
+            case COUNTING: case DONE: case READY:
+                [_timerView setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
+                [_resetButton setBackgroundImage:[UIImage imageNamed:@"button_reset"] forState:UIControlStateNormal];
+                break;
+            case PAUSE:
+                [_timerView setBackgroundColor:[UIColor colorWithRed:0.66 green:0.66 blue:0.76 alpha:1.0]];
+                break;
+            default:
+                break;
+        }
+    } else if (currentTask.typeOfTask == RECESS)
+    {
+        [_timerView setBackgroundColor:[UIColor colorWithRed:0.82 green:0.65 blue:0.66 alpha:1.0]];
+        [_resetButton setBackgroundImage:[UIImage imageNamed:@"button_reset_enable"] forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    int numberOfCycle = [_pomoCycleArray count];
+    return numberOfCycle;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    int numOfCycle = [_pomoCycleArray count] - 1;
+    LSPomoCycle *thisCycle = [_pomoCycleArray objectAtIndex:numOfCycle - section];
+    int rowCount = [thisCycle startedTaskCount];
+    
+    if (rowCount == 0)
+        rowCount++;
+    NSLog(@"current section: %d, row count: %d", section, rowCount);
+    return rowCount;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"DetailCell";
+    
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    NSArray *pomodoroCycleArray = [[self appDelegate].todaysPomodoro valueForKey:@"PomodoroCycle"];
+    int numOfCycle = [pomodoroCycleArray count] - 1;
+    LSPomoCycle *pomoCycle = [pomodoroCycleArray objectAtIndex: numOfCycle - indexPath.section];
+    
+    
+    int numOfPomo = [pomoCycle startedTaskCount];
+    int pomoIndex = 0;
+    if (numOfPomo > 0) pomoIndex = numOfPomo - indexPath.row-1;
+    LSPomoTask *currentTask = [pomoCycle.pomoArray objectAtIndex:pomoIndex];
+    
+    cell.textLabel.text = currentTask.taskName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",currentTask.periodString];
+    
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *sectionLabel = [[UILabel alloc] init];
+    int numOfCycle = [_pomoCycleArray count];
+    sectionLabel.text = [NSString stringWithFormat:@"   Cycle %d", numOfCycle - section];
+    sectionLabel.backgroundColor = [UIColor darkGrayColor];
+    sectionLabel.textColor = [UIColor whiteColor];
+    sectionLabel.font = [UIFont boldSystemFontOfSize:12];
+    return sectionLabel;
+    
+}
+
 @end
