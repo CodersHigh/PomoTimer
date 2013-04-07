@@ -7,6 +7,7 @@
 //
 
 #import "LSAppDelegate.h"
+#import "LSPomoCycle.h"
 
 static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
 

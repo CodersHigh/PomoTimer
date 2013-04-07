@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LSPomoCycle.h"
 
 @interface LSAppDelegate : UIResponder <UIApplicationDelegate>
 

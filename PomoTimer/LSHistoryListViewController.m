@@ -9,6 +9,7 @@
 #import "LSHistoryListViewController.h"
 #import "LSAppDelegate.h"
 #import "LSHistoryDetailViewController.h"
+#import "LSPomoCycle.h"
 
 @interface LSHistoryListViewController ()
 

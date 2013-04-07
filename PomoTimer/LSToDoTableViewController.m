@@ -173,12 +173,12 @@
     
     if (proposedDestinationIndexPath.row > [toCycle.pomoArray count]-1) {
         // 섹션의 제일 아래로는 이동이 불가능하고, 다음 섹션 제일 위로만 이동이 가능하게함.
-        return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
+        return sourceIndexPath;
     } else {
         LSPomoTask *toTask = [toCycle.pomoArray objectAtIndex:proposedDestinationIndexPath.row];
         // Done상태 위로는 이동하지 못하도록.
         if (toTask.status > READY) {
-            return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
+            return sourceIndexPath;
         }
     }
     return proposedDestinationIndexPath;
@@ -201,8 +201,9 @@
         LSPomoCycle *currentCycle =  [pomoCycles objectAtIndex:sourceIndexPath.section];
 
         NSMutableArray *newArray = [NSMutableArray arrayWithArray:currentCycle.pomoArray];
-        [newArray replaceObjectAtIndex:fromIndex withObject:[currentCycle.pomoArray objectAtIndex:toIndex]];
-        [newArray replaceObjectAtIndex:toIndex withObject:[currentCycle.pomoArray objectAtIndex:fromIndex]];
+        
+        [newArray removeObjectAtIndex:fromIndex];
+        [newArray insertObject:[currentCycle.pomoArray objectAtIndex:fromIndex] atIndex:toIndex];
         
         currentCycle.pomoArray = newArray;
         
