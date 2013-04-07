@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LSNumberPushingView.h"
 
 @interface LSHistoryDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

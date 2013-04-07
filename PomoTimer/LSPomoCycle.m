@@ -7,6 +7,7 @@
 //
 
 #import "LSPomoCycle.h"
+static LSPomoTask *_currentWorkingTask;
 
 @implementation LSPomoCycle
 
@@ -69,14 +70,12 @@
         self.pomoArray = (NSArray *)pomoCycle;
         self.recessArray = (NSArray *)recessCycle;
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startNextTask:) name:kPomodoroTaskDone object:nil];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
     self.currentTask = nil;
     self.pomoArray = nil;
     self.recessArray = nil;
@@ -88,7 +87,6 @@
     if (self != nil){
         self.pomoArray = [aDecoder decodeObjectForKey:@"PomoArray"];
         self.recessArray = [aDecoder decodeObjectForKey:@"RecessArray"];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startNextTask:) name:kPomodoroTaskDone object:nil];
     }
     
     return self;
@@ -122,19 +120,11 @@
     return nil;
 }
 
-- (void)startNextTask:(NSNotification *)notification
-{
-    LSPomoTask *currentTask = self.currentTask;
-    if (currentTask != nil && currentTask.status == READY){
-        currentTask.status = COUNTING;
-    }
-}
 
 - (void)resetCurrentTask
 {
     LSPomoTask *currentTask = self.currentTask;
     if (currentTask.typeOfTask == POMODORO){
-        currentTask.taskTimeInSecond = POMODORO_TIME;
         [currentTask resetTask];
         currentTask.taskTimeInSecond = POMODORO_TIME;
     }

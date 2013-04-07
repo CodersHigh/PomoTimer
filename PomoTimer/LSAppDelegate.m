@@ -14,8 +14,6 @@ static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navibarColor"] forBarMetrics:UIBarMetricsDefault];
-    [[UIBarButtonItem appearance] setTintColor:[UIColor colorWithWhite:0.5 alpha:0.8]];
     // Override point for customization after application launch.
     
     NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
@@ -64,15 +62,43 @@ static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
     NSDictionary *lastDailyPomo = [_dailyPomodoroArray lastObject];
     if (lastDailyPomo != nil){
         NSDate *lastPomoDate = [lastDailyPomo valueForKey:@"PomodoroDate"];
-        if (isSameDay(lastPomoDate, [NSDate date])){
+        if (isSameDay(lastPomoDate, [NSDate date]))
             return lastDailyPomo;
-        }
     }
-    return nil;
+    
+    lastDailyPomo = [NSDictionary dictionaryWithObjectsAndKeys:[NSDate date], kPomodoroDateKey, [NSArray array], kPomodoroCyclesKey, nil];
+    [_dailyPomodoroArray addObject:lastDailyPomo];
+    
+    return lastDailyPomo;
 }
 
 - (void)setTodaysPomodoro:(NSDictionary *)todaysPomodoro
 {
+    NSDictionary *lastDailyPomo = [_dailyPomodoroArray lastObject];
+    if (lastDailyPomo != nil){
+        NSDate *lastPomoDate = [lastDailyPomo valueForKey:@"PomodoroDate"];
+        if (isSameDay(lastPomoDate, [NSDate date])){
+            [_dailyPomodoroArray removeLastObject];
+        }
+    }
     [_dailyPomodoroArray addObject:todaysPomodoro];
+}
+
+- (NSMutableArray *)todaysPomoCycleArray
+{
+    NSMutableArray *pomoCycle = [[NSMutableArray alloc] initWithArray:[self.todaysPomodoro valueForKey:kPomodoroCyclesKey]];
+    return pomoCycle;
+}
+
+- (void)createNewPomoCycle
+{
+    NSMutableArray *pomoCycles = [self todaysPomoCycleArray];
+    
+    LSPomoCycle *newCycle = [[LSPomoCycle alloc] init];
+    [pomoCycles addObject:newCycle];
+    
+    NSMutableDictionary *newTodayDict = [NSMutableDictionary dictionaryWithDictionary:self.todaysPomodoro];
+    [newTodayDict setValue:pomoCycles forKey:kPomodoroCyclesKey];
+    self.todaysPomodoro = newTodayDict;
 }
 @end

@@ -11,11 +11,11 @@
 #import "LSAppDelegate.h"
 #import "LSNumberPushingView.h"
 #import "LSTimerButton.h"
+#import "LSToDoTableViewController.h"
 
 @interface LSTaskViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     LSPomoCycle *_pomoCycle;
-    NSMutableArray *_pomoCycleArray;
     
     UIView *_timerView;
     LSTimerButton *_pomoTimerButton;
@@ -25,6 +25,8 @@
     LSNumberPushingView *_cycleView;
     
     UITableView *_todaysHistoryTableView;
+    
+    LSToDoTableViewController *_todoTableViewController;
 }
 @end
 
@@ -36,22 +38,12 @@
     
 	[self viewInitialize];
     
-    LSAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.todaysPomodoroDict = appDelegate.todaysPomodoro;
+    self.todaysPomodoroDict = [self appDelegate].todaysPomodoro;
     
-    if (self.todaysPomodoroDict != nil){
-        _pomoCycleArray = [[NSMutableArray alloc] initWithArray:[self.todaysPomodoroDict valueForKey:kPomodoroCyclesKey]];
-        _pomoCycle = [_pomoCycleArray lastObject];
-    } else {
-        _pomoCycleArray = [[NSMutableArray alloc] initWithCapacity:10];
-        [self createNewPomoCycle];
-        
-        NSDictionary *todaysNewPomoDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           [NSDate date], kPomodoroDateKey, _pomoCycleArray, kPomodoroCyclesKey, nil];
-        self.todaysPomodoroDict = todaysNewPomoDict;
-        appDelegate.todaysPomodoro = self.todaysPomodoroDict;
-    }
+    _pomoCycle = [self nextAvailableCycle];
 
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pomodoroUpdate:) name:kPomodoroTaskDone object:nil];
     
     [self pomodoroUpdate:nil];
@@ -102,10 +94,9 @@
 
 - (void)createNewPomoCycle
 {
-    _pomoCycle = [[LSPomoCycle alloc] init];
-    [_pomoCycleArray addObject:_pomoCycle];
+    [[self appDelegate] createNewPomoCycle];
     
-    int count = [_pomoCycleArray count] -1;
+    int count = [[[self appDelegate] todaysPomoCycleArray] count] -1;
     
     _cycleView.targetPanelNum = count%10;
     
@@ -202,15 +193,38 @@
     
     //뽀모도로 사이클이 끝난 것이므로 새로운 사이클을 만들어야 한다. AppDelegate에 넣는 것도 잊지말고.
     LSPomoTask *newTask = _pomoCycle.currentTask;
-    if (newTask == nil){
-        [self createNewPomoCycle];
-        _pomoCycle.currentTask.status = COUNTING;
+    if (newTask == nil){//다음 사이클이 있는 경우 사이클 오브젝트 변경
+        _pomoCycle = [self nextAvailableCycle];
     }
+    
+    newTask = _pomoCycle.currentTask;
+    newTask.status = COUNTING;
+    
+    //따로 하는 게 낫지 않나 싶지만.
     
     [self updateTimerImageView];
     [_todaysHistoryTableView reloadData];
     [self updateViewLayout];
     [self updateWorkTitle];
+}
+
+- (LSPomoCycle *)nextAvailableCycle
+{
+    NSMutableArray *pomoCycles = [[self appDelegate] todaysPomoCycleArray];
+    NSUInteger firstCycleIndex = [pomoCycles indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop){
+        if ([(LSPomoCycle *)obj doneTaskCount] < 4){
+            *stop = YES;
+            return YES;
+        }
+        return NO;
+    }];
+    NSLog(@"Next Cyce Index = %d", firstCycleIndex);
+    if (firstCycleIndex != NSNotFound){
+        _pomoCycle = [pomoCycles objectAtIndex:firstCycleIndex];
+    } else {
+        [self createNewPomoCycle];
+    }
+    return _pomoCycle;
 }
 
 - (void)updatePomodoroImageView
@@ -265,18 +279,37 @@
     }
 }
 
+- (IBAction)showTodoTable:(id)sender {
+    
+    _todoTableViewController =[[LSToDoTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_todoTableViewController];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 #pragma mark - Table view data source
+
+- (int)sectionCountForEntry
+{
+    int sectionCount = 0;
+    for (LSPomoCycle *pomoCycle in [[self appDelegate] todaysPomoCycleArray]) {
+        if ([pomoCycle startedTaskCount] > 0) sectionCount ++;
+    }
+    return sectionCount;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    int numberOfCycle = [_pomoCycleArray count];
+    int numberOfCycle = [self sectionCountForEntry];
     return numberOfCycle;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int numOfCycle = [_pomoCycleArray count] - 1;
-    LSPomoCycle *thisCycle = [_pomoCycleArray objectAtIndex:numOfCycle - section];
+    NSMutableArray *pomoCycles = [[self appDelegate] todaysPomoCycleArray];
+    int numOfCycle = [self sectionCountForEntry];
+    LSPomoCycle *thisCycle = [pomoCycles objectAtIndex:numOfCycle - (section + 1)];
     int rowCount = [thisCycle startedTaskCount];
     
     if (rowCount == 0)
@@ -291,14 +324,14 @@
     static NSString *CellIdentifier = @"DetailCell";
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-    NSArray *pomodoroCycleArray = [[self appDelegate].todaysPomodoro valueForKey:@"PomodoroCycle"];
-    int numOfCycle = [pomodoroCycleArray count] - 1;
-    LSPomoCycle *pomoCycle = [pomodoroCycleArray objectAtIndex: numOfCycle - indexPath.section];
     
+    NSMutableArray *pomoCycles = [[self appDelegate] todaysPomoCycleArray];
+    int numOfCycle = [self sectionCountForEntry];
+    LSPomoCycle *pomoCycle = [pomoCycles objectAtIndex: numOfCycle - (indexPath.section +1)];
     
     int numOfPomo = [pomoCycle startedTaskCount];
     int pomoIndex = 0;
-    if (numOfPomo > 0) pomoIndex = numOfPomo - indexPath.row-1;
+    if (numOfPomo > 0) pomoIndex = numOfPomo - (indexPath.row+1);
     LSPomoTask *currentTask = [pomoCycle.pomoArray objectAtIndex:pomoIndex];
     
     cell.textLabel.text = currentTask.taskName;
@@ -310,13 +343,12 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *sectionLabel = [[UILabel alloc] init];
-    int numOfCycle = [_pomoCycleArray count];
+    int numOfCycle = [self sectionCountForEntry];
     sectionLabel.text = [NSString stringWithFormat:@"   Cycle %d", numOfCycle - section];
     sectionLabel.backgroundColor = [UIColor darkGrayColor];
     sectionLabel.textColor = [UIColor whiteColor];
     sectionLabel.font = [UIFont boldSystemFontOfSize:12];
     return sectionLabel;
-    
 }
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "LSHistoryDetailViewController.h"
+#import "LSNumberPushingView.h"
 #import "LSPomoCycle.h"
 #import "LSPomoTask.h"
+#import "LSAppDelegate.h"
 
 @interface LSHistoryDetailViewController ()
 {
@@ -31,8 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    /*_cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 45, 38, 29)];
-    _cycleView.numType = CYCLE_NUM;
+    _cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 45, 38, 29) numType:CYCLE_NUM];
     
     [self.historyRecordView addSubview:_cycleView];
    
@@ -41,28 +42,33 @@
     
     LSPomoCycle *lastCycle = [pomodoroCycleArray lastObject];
     
-    for (int i = 0; i < [lastCycle.taskArray count]; i++) {
-        LSPomoTask *task = [lastCycle.taskArray objectAtIndex:i];
-        if (task.typeOfTask == POMODORO) {
-            UIImageView *pomodoroImageView = (UIImageView *)[self.historyRecordView viewWithTag:(500+i)];
-            NSString *pomodoroImageName;
-            switch (task.status) {
-                case READY: case PAUSE: case COUNTING:
-                    pomodoroImageName = @"Pomodoro_Off";
-                    break;
-                case DONE:
-                    pomodoroImageName = @"Pomodoro_On";
-                    break;
-            }
-            pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
+    for (int i = 0; i < [lastCycle.pomoArray count]; i++) {
+        LSPomoTask *task = [lastCycle.pomoArray objectAtIndex:i];
+        
+        UIImageView *pomodoroImageView = (UIImageView *)[self.historyRecordView viewWithTag:(500+i)];
+        NSString *pomodoroImageName;
+        switch (task.status) {
+            case READY: case PAUSE: case COUNTING:
+                pomodoroImageName = @"Pomodoro_Off";
+                break;
+            case DONE:
+                pomodoroImageName = @"Pomodoro_On";
+                break;
+                
+                pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
         }
-    }*/
+    }
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(LSAppDelegate *)appDelegate
+{
+    return [[UIApplication sharedApplication] delegate];
 }
 
 
@@ -89,23 +95,23 @@
     
     NSArray *pomodoroCyleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
     LSPomoCycle *pomoCycle = [pomodoroCyleArray objectAtIndex:indexPath.section];
-    LSPomoTask *currentTask = [pomoCycle.taskArray objectAtIndex:(indexPath.row * 2)];
+    LSPomoTask *currentTask = [pomoCycle.pomoArray objectAtIndex:indexPath.row];
 
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"HH:mm"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"KST"]];
+    cell.textLabel.text = currentTask.taskName;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",currentTask.periodString];
     
-    NSString *startDateString = [dateFormatter stringFromDate:currentTask.startDate];
-    NSString *endDateString = [dateFormatter stringFromDate:currentTask.endDate];
-    
-    NSString *periodString = [NSString stringWithFormat:@"%@ ~ %@",startDateString, endDateString];
-    cell.textLabel.text = periodString;
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSString *headerString = [NSString stringWithFormat:@"Pomodoro Cycle #%d", section + 1];
-    return headerString;
+    UILabel *sectionLabel = [[UILabel alloc] init];
+    sectionLabel.backgroundColor = [UIColor darkGrayColor];
+    sectionLabel.textColor = [UIColor whiteColor];
+    sectionLabel.font = [UIFont boldSystemFontOfSize:12];
+    sectionLabel.text = [NSString stringWithFormat:@"   Cycle %d",section+1];
+    
+    return sectionLabel;
 }
+
 @end

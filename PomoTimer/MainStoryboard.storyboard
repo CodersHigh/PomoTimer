@@ -55,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yfl-LA-UJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="-691"/>
+            <point key="canvasLocation" x="-41" y="-674"/>
         </scene>
         <!--History Detail View Controller-->
         <scene sceneID="f0i-1C-pTP">
@@ -158,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ds6-u0-2Jj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="-691"/>
+            <point key="canvasLocation" x="357" y="-674"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cWW-dI-h5x">
@@ -184,7 +184,7 @@
                 </navigationItem>
                 <exit id="Z7X-WI-duM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="-691"/>
+            <point key="canvasLocation" x="-465" y="-674"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="HOW-Lk-ff8">
@@ -217,6 +217,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="r4s-QR-xnP" kind="modal" id="aca-7N-7VA"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="4qR-sn-MKN">
@@ -235,9 +238,6 @@
                                     <action selector="showTodoTable:" destination="8KN-gE-iW6" eventType="touchUpInside" id="m05-QV-9HQ"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <segue destination="r4s-QR-xnP" kind="modal" id="yH9-Do-Ucx"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWO-Mn-iPA" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-110" y="11"/>
+            <point key="canvasLocation" x="-465" y="28"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qQE-Q6-s9S">
@@ -264,7 +264,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3C-jb-Cx4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="11"/>
+            <point key="canvasLocation" x="-901" y="28"/>
         </scene>
     </scenes>
     <resources>
@@ -272,40 +272,6 @@
         <image name="button_history@2x.png" width="65" height="65"/>
         <image name="button_todo@2x.png" width="65" height="65"/>
     </resources>
-    <classes>
-        <class className="LSHistoryDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSHistoryDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="historyRecordView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="LSHistoryListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSHistoryListViewController.h"/>
-        </class>
-        <class className="LSTaskViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSTaskViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="reset:"/>
-                <relationship kind="action" name="startPause:"/>
-                <relationship kind="outlet" name="taskScrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismiss:"/>
-                <relationship kind="action" name="dismissPush:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="exit:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="navigationBackToRoot:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

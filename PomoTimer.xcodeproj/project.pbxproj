@@ -65,6 +65,7 @@
 		2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */; };
 		2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */; };
 		2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
+		2CCD58AD17105F2500FBB699 /* LSToDoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,8 @@
 		2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTimerButton.m; sourceTree = "<group>"; };
 		2CCD58A6170DBF2200FBB699 /* UIImage+ColorAtPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorAtPixel.h"; sourceTree = "<group>"; };
 		2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
+		2CCD58AB17105F2000FBB699 /* LSToDoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSToDoTableViewController.h; sourceTree = "<group>"; };
+		2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSToDoTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */,
 				2CCD584B170D53A000FBB699 /* LSHistoryListViewController.h */,
 				2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */,
+				2CCD58AB17105F2000FBB699 /* LSToDoTableViewController.h */,
+				2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */,
 				2CCD5852170D544300FBB699 /* UIViewController+Storyboard.h */,
 				2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */,
 				2CC2A48B16A3D0020037CF76 /* Supporting Files */,
@@ -399,6 +404,7 @@
 				2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */,
 				2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */,
 				2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */,
+				2CCD58AD17105F2500FBB699 /* LSToDoTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
