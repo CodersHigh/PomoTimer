@@ -101,4 +101,11 @@ static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
     [newTodayDict setValue:pomoCycles forKey:kPomodoroCyclesKey];
     self.todaysPomodoro = newTodayDict;
 }
+
+- (void)changeTodaysPomoCycleArray:(NSArray *)newArray
+{
+    NSMutableDictionary *newTodayDict = [NSMutableDictionary dictionaryWithDictionary:self.todaysPomodoro];
+    [newTodayDict setValue:newArray forKey:kPomodoroCyclesKey];
+    self.todaysPomodoro = newTodayDict;
+}
 @end

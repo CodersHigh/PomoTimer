@@ -18,4 +18,5 @@
 @property (readonly) NSMutableArray *todaysPomoCycleArray;
 
 - (void)createNewPomoCycle;
+- (void)changeTodaysPomoCycleArray:(NSArray *)newArray;
 @end

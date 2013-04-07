@@ -160,7 +160,7 @@
 {
     LSPomoCycle *currentSectionPomoCycle = [self.pomoCycleArray objectAtIndex:indexPath.section];
     
-    if ([currentSectionPomoCycle isTaskDone:indexPath.row]) {
+    if ([currentSectionPomoCycle isTaskStarted:indexPath.row]) {
         return NO;
     }
     
@@ -170,30 +170,28 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
     LSPomoCycle *toCycle = [self.pomoCycleArray objectAtIndex:proposedDestinationIndexPath.section];
-    LSPomoTask *toTask = [toCycle.pomoArray objectAtIndex:proposedDestinationIndexPath.row];
-
+    
     if (proposedDestinationIndexPath.row > [toCycle.pomoArray count]-1) {
         // 섹션의 제일 아래로는 이동이 불가능하고, 다음 섹션 제일 위로만 이동이 가능하게함.
         return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
     } else {
+        LSPomoTask *toTask = [toCycle.pomoArray objectAtIndex:proposedDestinationIndexPath.row];
         // Done상태 위로는 이동하지 못하도록.
-        if (toTask.status == DONE) {
+        if (toTask.status > READY) {
             return [NSIndexPath indexPathForRow:sourceIndexPath.row inSection:sourceIndexPath.section];
         }
     }
     return proposedDestinationIndexPath;
 }
 
-// row를 이동하면 pomotask의 이름만 바뀐다.
-// Section이 바뀌는 경우 pomocycle의 taskArray의 count가 늘어나거나 줄어들지 않도록 함.
-// 다른섹션으로 이동하면 다음 섹션으로 한칸씩 밀려서 한 싸이클에 4개가 유지되도록. (reload data)
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
     NSMutableArray *pomoCycles = self.pomoCycleArray;
     
     LSPomoCycle *toCycle = [pomoCycles objectAtIndex:destinationIndexPath.section];
     LSPomoTask *toTask = [toCycle.pomoArray objectAtIndex:destinationIndexPath.row];
-    if (toTask.status == DONE) {
+    if (toTask.status > READY) {
         return;
     }
 
@@ -201,58 +199,36 @@
         int fromIndex = sourceIndexPath.row;
         int toIndex = destinationIndexPath.row;
         LSPomoCycle *currentCycle =  [pomoCycles objectAtIndex:sourceIndexPath.section];
-        NSMutableArray *oldNameArray = [[NSMutableArray alloc] init];
 
-
-        for (int i=0; i<[currentCycle.pomoArray count]; i++) {
-            LSPomoTask *task = [currentCycle.pomoArray objectAtIndex:i];
-            [oldNameArray addObject:task.taskName];
-        }
+        NSMutableArray *newArray = [NSMutableArray arrayWithArray:currentCycle.pomoArray];
+        [newArray replaceObjectAtIndex:fromIndex withObject:[currentCycle.pomoArray objectAtIndex:toIndex]];
+        [newArray replaceObjectAtIndex:toIndex withObject:[currentCycle.pomoArray objectAtIndex:fromIndex]];
         
-        NSMutableArray *newNameArray = [NSMutableArray arrayWithArray:oldNameArray];
-        [newNameArray removeObjectAtIndex:fromIndex];
-        [newNameArray insertObject:[oldNameArray objectAtIndex:fromIndex] atIndex:toIndex];
-        NSLog(@"newNameArray : %@", newNameArray);
-        for (int i=0; i<[currentCycle.pomoArray count]; i++) {
-            [currentCycle changeTaskName:[newNameArray objectAtIndex:i] atTaskIndex:i];
-        }
-
-        [pomoCycles replaceObjectAtIndex:sourceIndexPath.section withObject:currentCycle];
-
+        currentCycle.pomoArray = newArray;
+        
     } else {
-        
         int fromSection = sourceIndexPath.section;
         int toSection = destinationIndexPath.section;
         int fromIndex = sourceIndexPath.row;
         int toIndex = destinationIndexPath.row;
         
-        NSMutableArray *oldNameArray = [[NSMutableArray alloc] init];
-        
+        NSMutableArray *oldArray = [[NSMutableArray alloc] initWithCapacity:10];
         for (int section = 0; section < tableView.numberOfSections; section++) {
-            
             LSPomoCycle *cycle = [pomoCycles objectAtIndex:section];
-            
-            for (int row=0; row < TASK_IN_CYCLE; row++) {
-                
-                LSPomoTask *task = [cycle.pomoArray objectAtIndex:row];
-                [oldNameArray addObject:task.taskName];
-            }
+            [oldArray addObjectsFromArray:cycle.pomoArray];
         }
         
-        NSMutableArray *newNameArray = [NSMutableArray arrayWithArray:oldNameArray];
-        [newNameArray removeObjectAtIndex:(fromSection * TASK_IN_CYCLE + fromIndex)];
-        [newNameArray insertObject:[oldNameArray objectAtIndex:(fromSection * TASK_IN_CYCLE + fromIndex)] atIndex:(toSection * TASK_IN_CYCLE + toIndex)];
+        NSMutableArray *newArray = [[NSMutableArray alloc] initWithArray:oldArray];
+        [newArray removeObjectAtIndex:(fromSection * TASK_IN_CYCLE + fromIndex)];
+        [newArray insertObject:[oldArray objectAtIndex:(fromSection * TASK_IN_CYCLE + fromIndex)] atIndex:(toSection * TASK_IN_CYCLE + toIndex)];
         
         for (int section = 0; section < tableView.numberOfSections; section++) {
-            
             LSPomoCycle *cycle = [pomoCycles objectAtIndex:section];
-           
-            for (int row=0; row < TASK_IN_CYCLE; row++) {
-                NSString *name = [newNameArray objectAtIndex:(section * TASK_IN_CYCLE + row)];
-                [cycle changeTaskName:name atTaskIndex:row];
-            }
-            [pomoCycles replaceObjectAtIndex:section withObject:cycle];
+            NSRange range = NSMakeRange(section * TASK_IN_CYCLE, TASK_IN_CYCLE);
+            NSArray *newPomoArray = [newArray subarrayWithRange:range];
+            cycle.pomoArray = newPomoArray;
         }
+        
         [self.tableView reloadData];
     }
 }
@@ -260,7 +236,6 @@
 
 #pragma mark - TextField Delegate
 
-//입력이 없으면 다른 필드로 빠져나가지 못함.
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     if ([textField.text isEqualToString:@""]) {
@@ -283,7 +258,6 @@
     LSPomoCycle *currentPomoCycle = [self.pomoCycleArray objectAtIndex:currentSection];
     [currentPomoCycle changeTaskName:newTaskName atTaskIndex:pomoIndex];
     [self.pomoCycleArray replaceObjectAtIndex:currentSection withObject:currentPomoCycle];
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

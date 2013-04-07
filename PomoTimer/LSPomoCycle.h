@@ -16,6 +16,7 @@
 - (int)startedTaskCount;
 
 - (BOOL)isTaskDone:(int)index;
+- (BOOL)isTaskStarted:(int)index;
 - (void)changeTaskName:(NSString *)newName atTaskIndex:(int)index;
 
 @property NSArray *pomoArray;

@@ -7,7 +7,6 @@
 //
 
 #import "LSPomoCycle.h"
-static LSPomoTask *_currentWorkingTask;
 
 @implementation LSPomoCycle
 
@@ -156,6 +155,17 @@ static LSPomoTask *_currentWorkingTask;
     LSPomoTask *currentTask = [self.pomoArray objectAtIndex:index];
     
     if (currentTask.status == DONE) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)isTaskStarted:(int)index
+{
+    LSPomoTask *currentTask = [self.pomoArray objectAtIndex:index];
+    
+    if (currentTask.status > READY) {
         return YES;
     }
     
