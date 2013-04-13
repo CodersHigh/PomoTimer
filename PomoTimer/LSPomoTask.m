@@ -10,8 +10,10 @@
 
 @interface LSPomoTask ()
 {
-     NSTimer *_pomodoroTimer;
+    NSTimer *_pomodoroTimer;
+    UILocalNotification *_doneNotification;
 }
+- (void)invalidateTask;
 @end
 
 @implementation LSPomoTask
@@ -75,8 +77,7 @@
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"status"];
-    [_pomodoroTimer invalidate];
-    _pomodoroTimer = nil;
+    [self invalidateTask];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -106,19 +107,27 @@
                 self.startDate = [NSDate date];
             }
             _pomodoroTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeGoes:) userInfo:nil repeats:YES];
+            [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+            _doneNotification = [[UILocalNotification alloc] init];
+            _doneNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:self.taskTimeInSecond];
+            _doneNotification.alertBody = [NSString stringWithFormat:@"Task %@ is done", self.taskName];
+            _doneNotification.applicationIconBadgeNumber = 1;
+            [[UIApplication sharedApplication] scheduleLocalNotification:_doneNotification];
             break;
             
         case PAUSE:
-            [_pomodoroTimer invalidate];
-            _pomodoroTimer = nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTimeChanged object:self];
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            
+            [self invalidateTask];
             break;
             
         case DONE:
             self.endDate = [NSDate date];
-            [_pomodoroTimer invalidate];
-            _pomodoroTimer = nil;
+            [self invalidateTask];
             [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTaskDone object:self];
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+            
             break;
     }
 }
@@ -138,14 +147,22 @@
     }
 }
 
-
 - (void)resetTask
 {
-    [_pomodoroTimer invalidate];
-    _pomodoroTimer = nil;
+    [self invalidateTask];
+    
     self.status = READY;
     self.startDate = nil;
     self.endDate = nil;
+}
+
+- (void)invalidateTask
+{
+    [_pomodoroTimer invalidate];
+    _pomodoroTimer = nil;
+    
+    [[UIApplication sharedApplication] cancelLocalNotification:_doneNotification];
+    _doneNotification = nil;
 }
 
 - (NSString *)periodString

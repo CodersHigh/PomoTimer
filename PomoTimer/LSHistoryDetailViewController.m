@@ -32,19 +32,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     _cycleView = [[LSNumberPushingView alloc] initWithFrame:CGRectMake(40, 45, 38, 29) numType:CYCLE_NUM];
-    
     [self.historyRecordView addSubview:_cycleView];
-   
-    NSArray *pomodoroCycleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
-    _cycleView.targetPanelNum = [pomodoroCycleArray count]-1;
+    _cycleView.targetPanelNum = [self cycleCountForComplete];
     
-    LSPomoCycle *lastCycle = [pomodoroCycleArray lastObject];
-    
+    LSPomoCycle *lastCycle = [self lastCycleOfTheDay];
     for (int i = 0; i < [lastCycle.pomoArray count]; i++) {
         LSPomoTask *task = [lastCycle.pomoArray objectAtIndex:i];
-        
         UIImageView *pomodoroImageView = (UIImageView *)[self.historyRecordView viewWithTag:(500+i)];
         NSString *pomodoroImageName;
         switch (task.status) {
@@ -54,9 +49,8 @@
             case DONE:
                 pomodoroImageName = @"Pomodoro_On";
                 break;
-                
-                pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
         }
+        pomodoroImageView.image = [UIImage imageNamed:pomodoroImageName];
     }
 }
 
@@ -71,12 +65,38 @@
     return [[UIApplication sharedApplication] delegate];
 }
 
+- (int)cycleCountForComplete
+{
+    NSArray *pomodoroCycleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
+    int cycleCount = 0;
+    for (LSPomoCycle *pomoCycle in pomodoroCycleArray) {
+        if ([pomoCycle doneTaskCount] == 4) cycleCount ++;
+    }
+    return cycleCount;
+}
+
+- (int)cycleCountForStart
+{
+    NSArray *pomodoroCycleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
+    int cycleCount = 0;
+    for (LSPomoCycle *pomoCycle in pomodoroCycleArray) {
+        if ([pomoCycle startedTaskCount] > 0) cycleCount ++;
+    }
+    return cycleCount;
+}
+
+- (LSPomoCycle *)lastCycleOfTheDay
+{
+    NSArray *pomodoroCycleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
+    for (LSPomoCycle *pomoCycle in pomodoroCycleArray) {
+        if ([pomoCycle doneTaskCount] < 4) return pomoCycle;
+    }
+    return [pomodoroCycleArray lastObject];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSArray *pomodoroCycleArray = [self.pomodoroOfTheDay valueForKey:@"PomodoroCycle"];
-    int numberOfCycle = [pomodoroCycleArray count];
-    return numberOfCycle;
+    return [self cycleCountForStart];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -15,8 +15,6 @@
 
 @interface LSTaskViewController () <UITableViewDataSource, UITableViewDelegate>
 {
-    LSPomoCycle *_pomoCycle;
-    
     UIView *_timerView;
     LSTimerButton *_pomoTimerButton;
     UIButton *_resetButton;
@@ -195,12 +193,12 @@
     LSPomoTask *newTask = _pomoCycle.currentTask;
     if (newTask == nil){//다음 사이클이 있는 경우 사이클 오브젝트 변경
         _pomoCycle = [self nextAvailableCycle];
+        newTask = _pomoCycle.currentTask;
     }
+
+    if (doneTask!= nil)
+        newTask.status = COUNTING;
     
-    newTask = _pomoCycle.currentTask;
-    newTask.status = COUNTING;
-    
-    //따로 하는 게 낫지 않나 싶지만.
     
     [self updateTimerImageView];
     [_todaysHistoryTableView reloadData];

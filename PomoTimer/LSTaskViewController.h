@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class LSPomoCycle;
 
 @interface LSTaskViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *taskScrollView;
 @property NSDictionary *todaysPomodoroDict;
-
+@property LSPomoCycle *pomoCycle;
 @end

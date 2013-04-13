@@ -28,7 +28,6 @@
 @property NSDate *endDate;
 
 - (NSString *)periodString;
-
 - (void)resetTask;
 
 @end

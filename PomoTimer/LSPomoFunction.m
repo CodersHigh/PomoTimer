@@ -41,6 +41,7 @@ int dayOfDate(NSDate *date)
 
 BOOL isSameDay(NSDate *oneDate, NSDate *anotherDate)
 {
+    if (oneDate == nil | anotherDate == nil) return NO;
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     unsigned int unitFlags = NSMonthCalendarUnit | NSYearCalendarUnit | NSDayCalendarUnit;
     NSDateComponents *comps = [gregorian components:unitFlags fromDate:oneDate  toDate:anotherDate  options:0];
