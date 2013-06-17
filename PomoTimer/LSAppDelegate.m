@@ -78,13 +78,7 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
         int timeGap = [[NSDate date] timeIntervalSinceDate:_backgroundDate];
         int currentTaskTime = currentTask.taskTimeInSecond;
         int resultTime = currentTaskTime - timeGap;
-        if (resultTime > 0){
-            currentTask.taskTimeInSecond = resultTime;
-        } else {
-            currentTask.taskTimeInSecond = 0;
-            currentTask.status = DONE;
-        }
-        
+        currentTask.taskTimeInSecond = resultTime;
     }
 }
 

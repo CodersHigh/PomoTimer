@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PomoTimer/LSAppDelegate.m"
-         timestampString = "387553802.85159"
+         timestampString = "387560138.256566"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-changeTodaysPomoCycleArray:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PomoTimer/LSAppDelegate.m"
-         timestampString = "387553802.85159"
+         timestampString = "387560138.256566"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "100"
-         endingLineNumber = "100"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-applicationWillTerminate:"
          landmarkType = "5">
       </FileBreakpoint>
