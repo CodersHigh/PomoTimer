@@ -116,6 +116,10 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+}
+
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
 }
 
@@ -196,7 +200,7 @@
         newTask = _pomoCycle.currentTask;
     }
 
-    if (doneTask!= nil)
+    if (notification != nil)
         newTask.status = COUNTING;
     
     

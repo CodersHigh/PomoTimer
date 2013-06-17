@@ -73,17 +73,17 @@
                                             <constraint firstAttribute="width" constant="20" id="pVa-2D-Ist"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="502" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="dt0-ew-eds">
+                                    <imageView userInteractionEnabled="NO" tag="501" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="dt0-ew-eds">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="hQb-I6-2fb"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="504" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pnr-Mf-w52">
+                                    <imageView userInteractionEnabled="NO" tag="502" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pnr-Mf-w52">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="FYv-pN-CnN"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" tag="506" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="yCM-3m-JiK">
+                                    <imageView userInteractionEnabled="NO" tag="503" contentMode="scaleAspectFit" image="Pomodoro_Off.png" translatesAutoresizingMaskIntoConstraints="NO" id="yCM-3m-JiK">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="2kS-Ep-gtP"/>
                                         </constraints>
@@ -272,6 +272,40 @@
         <image name="button_history@2x.png" width="65" height="65"/>
         <image name="button_todo@2x.png" width="65" height="65"/>
     </resources>
+    <classes>
+        <class className="LSHistoryDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSHistoryDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="historyRecordView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="LSHistoryListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSHistoryListViewController.h"/>
+        </class>
+        <class className="LSTaskViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LSTaskViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reset:"/>
+                <relationship kind="action" name="showTodoTable:"/>
+                <relationship kind="outlet" name="taskScrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="action" name="dismissPush:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="exit:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="navigationBackToRoot:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
