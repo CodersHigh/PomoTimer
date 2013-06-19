@@ -14,11 +14,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>icon57.png</string>
-				<string>icon114.png</string>
+				<string>icon_57_57.png</string>
+				<string>icon_114_114.png</string>
 			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
@@ -37,10 +35,10 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIApplicationExitsOnSuspend</key>
+	<false/>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -49,7 +47,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIApplicationExitsOnSuspend</key>
-	<false/>
 </dict>
 </plist>
