@@ -58,6 +58,10 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     _backgroundDate = [NSDate date];
     
+    NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
+    
+    [NSKeyedArchiver archiveRootObject:_dailyPomodoroArray toFile:filePath];
+    
     NSLog(@"%s \r\n date = %@", __FUNCTION__, _backgroundDate);
 }
 

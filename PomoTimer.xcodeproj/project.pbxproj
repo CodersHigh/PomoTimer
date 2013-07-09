@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C41B8FD178BF3410065AB62 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */; };
+		2C41B8FE178BF3410065AB62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48416A3D0010037CF76 /* UIKit.framework */; };
+		2C41B8FF178BF3410065AB62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48616A3D0020037CF76 /* Foundation.framework */; };
+		2C41B905178BF3410065AB62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C41B903178BF3410065AB62 /* InfoPlist.strings */; };
+		2C41B908178BF3410065AB62 /* PomoTimerUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */; };
+		2C41B90F178BF3AA0065AB62 /* LSPomoTaskTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */; };
+		2C41B912178BF3E20065AB62 /* LSPomoCycleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */; };
 		2CC2A48516A3D0020037CF76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48416A3D0010037CF76 /* UIKit.framework */; };
 		2CC2A48716A3D0020037CF76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48616A3D0020037CF76 /* Foundation.framework */; };
 		2CC2A48916A3D0020037CF76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */; };
@@ -71,6 +78,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		2C41B902178BF3410065AB62 /* PomoTimerUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PomoTimerUnitTest-Info.plist"; sourceTree = "<group>"; };
+		2C41B904178BF3410065AB62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C41B906178BF3410065AB62 /* PomoTimerUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomoTimerUnitTest.h; sourceTree = "<group>"; };
+		2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomoTimerUnitTest.m; sourceTree = "<group>"; };
+		2C41B909178BF3410065AB62 /* PomoTimerUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PomoTimerUnitTest-Prefix.pch"; sourceTree = "<group>"; };
+		2C41B90D178BF3AA0065AB62 /* LSPomoTaskTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoTaskTest.h; sourceTree = "<group>"; };
+		2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoTaskTest.m; sourceTree = "<group>"; };
+		2C41B910178BF3E20065AB62 /* LSPomoCycleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoCycleTest.h; sourceTree = "<group>"; };
+		2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoCycleTest.m; sourceTree = "<group>"; };
 		2CC2A48016A3D0010037CF76 /* PomoTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC2A48416A3D0010037CF76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CC2A48616A3D0020037CF76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +168,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C41B8F7178BF3410065AB62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C41B8FD178BF3410065AB62 /* SenTestingKit.framework in Frameworks */,
+				2C41B8FE178BF3410065AB62 /* UIKit.framework in Frameworks */,
+				2C41B8FF178BF3410065AB62 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CC2A47D16A3D0010037CF76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,10 +193,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C41B900178BF3410065AB62 /* PomoTimerUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				2C41B906178BF3410065AB62 /* PomoTimerUnitTest.h */,
+				2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */,
+				2C41B90D178BF3AA0065AB62 /* LSPomoTaskTest.h */,
+				2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */,
+				2C41B910178BF3E20065AB62 /* LSPomoCycleTest.h */,
+				2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */,
+				2C41B901178BF3410065AB62 /* Supporting Files */,
+			);
+			path = PomoTimerUnitTest;
+			sourceTree = "<group>";
+		};
+		2C41B901178BF3410065AB62 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C41B902178BF3410065AB62 /* PomoTimerUnitTest-Info.plist */,
+				2C41B903178BF3410065AB62 /* InfoPlist.strings */,
+				2C41B909178BF3410065AB62 /* PomoTimerUnitTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		2CC2A47516A3D0010037CF76 = {
 			isa = PBXGroup;
 			children = (
 				2CC2A48A16A3D0020037CF76 /* PomoTimer */,
+				2C41B900178BF3410065AB62 /* PomoTimerUnitTest */,
 				2CC2A48316A3D0010037CF76 /* Frameworks */,
 				2CC2A48116A3D0010037CF76 /* Products */,
 			);
@@ -178,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC2A48016A3D0010037CF76 /* PomoTimer.app */,
+				2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +244,7 @@
 				2CC2A48416A3D0010037CF76 /* UIKit.framework */,
 				2CC2A48616A3D0020037CF76 /* Foundation.framework */,
 				2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */,
+				2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,6 +353,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2C41B8FA178BF3410065AB62 /* PomoTimerUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C41B90C178BF3410065AB62 /* Build configuration list for PBXNativeTarget "PomoTimerUnitTest" */;
+			buildPhases = (
+				2C41B8F6178BF3410065AB62 /* Sources */,
+				2C41B8F7178BF3410065AB62 /* Frameworks */,
+				2C41B8F8178BF3410065AB62 /* Resources */,
+				2C41B8F9178BF3410065AB62 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PomoTimerUnitTest;
+			productName = PomoTimerUnitTest;
+			productReference = 2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		2CC2A47F16A3D0010037CF76 /* PomoTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CC2A4A416A3D0020037CF76 /* Build configuration list for PBXNativeTarget "PomoTimer" */;
@@ -338,11 +411,20 @@
 			projectRoot = "";
 			targets = (
 				2CC2A47F16A3D0010037CF76 /* PomoTimer */,
+				2C41B8FA178BF3410065AB62 /* PomoTimerUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2C41B8F8178BF3410065AB62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C41B905178BF3410065AB62 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CC2A47E16A3D0010037CF76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,7 +477,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C41B8F9178BF3410065AB62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2C41B8F6178BF3410065AB62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C41B908178BF3410065AB62 /* PomoTimerUnitTest.m in Sources */,
+				2C41B90F178BF3AA0065AB62 /* LSPomoTaskTest.m in Sources */,
+				2C41B912178BF3E20065AB62 /* LSPomoCycleTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CC2A47C16A3D0010037CF76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +527,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2C41B903178BF3410065AB62 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C41B904178BF3410065AB62 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		2CC2A48D16A3D0020037CF76 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -430,6 +546,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2C41B90A178BF3410065AB62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PomoTimerUnitTest/PomoTimerUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "PomoTimerUnitTest/PomoTimerUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2C41B90B178BF3410065AB62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PomoTimerUnitTest/PomoTimerUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "PomoTimerUnitTest/PomoTimerUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		2CC2A4A216A3D0020037CF76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -505,6 +659,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C41B90C178BF3410065AB62 /* Build configuration list for PBXNativeTarget "PomoTimerUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C41B90A178BF3410065AB62 /* Debug */,
+				2C41B90B178BF3410065AB62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		2CC2A47A16A3D0010037CF76 /* Build configuration list for PBXProject "PomoTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
