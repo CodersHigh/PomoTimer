@@ -73,9 +73,34 @@
 		2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */; };
 		2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
 		2CCD58AD17105F2500FBB699 /* LSToDoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */; };
+		C156E7A71793D65C00079EDC /* LSTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5834170D451500FBB699 /* LSTaskViewController.m */; };
+		C156E7AA1793E19B00079EDC /* LSTaskViewControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C156E7A91793E19B00079EDC /* LSTaskViewControllerTest.m */; };
+		C1CC5E15178FE4EA00DFF117 /* LSPomoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5830170D451500FBB699 /* LSPomoTask.m */; };
+		C1CC5E16178FE4F000DFF117 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; };
+		C1CC5E17178FE51A00DFF117 /* LSPomoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5847170D533800FBB699 /* LSPomoFunction.m */; };
+		C1CC5E18178FE5AD00DFF117 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */; };
+		C1CC5E19178FE5B400DFF117 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD5887170D57E600FBB699 /* QuartzCore.framework */; };
 		C1E2D73117714D5200B47111 /* icon_57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E2D73017714D5200B47111 /* icon_57_57.png */; };
 		C1E2D73317714D6400B47111 /* icon_114_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E2D73217714D6400B47111 /* icon_114_114.png */; };
+		C1F99BA91797B4B10008638A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */; };
+		C1F99BAA1797B5FE0008638A /* LSTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */; };
+		C1F99BAB1797B6010008638A /* LSNumberPushingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5850170D543600FBB699 /* LSNumberPushingView.m */; };
+		C1F99BAC1797B6030008638A /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */; };
+		C1F99BAD1797B6150008638A /* LSToDoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */; };
+		C1F99BAE1797B70B0008638A /* LSHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */; };
+		C1F99BAF1797B70E0008638A /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
+		C1F99BB01797B7170008638A /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1CC5DC6178FE42F00DFF117 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2CC2A47716A3D0010037CF76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CC2A47F16A3D0010037CF76;
+			remoteInfo = PomoTimer;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +188,8 @@
 		2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
 		2CCD58AB17105F2000FBB699 /* LSToDoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSToDoTableViewController.h; sourceTree = "<group>"; };
 		2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSToDoTableViewController.m; sourceTree = "<group>"; };
+		C156E7A81793E19B00079EDC /* LSTaskViewControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTaskViewControllerTest.h; sourceTree = "<group>"; };
+		C156E7A91793E19B00079EDC /* LSTaskViewControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTaskViewControllerTest.m; sourceTree = "<group>"; };
 		C1E2D73017714D5200B47111 /* icon_57_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_57_57.png; path = ../icon_57_57.png; sourceTree = "<group>"; };
 		C1E2D73217714D6400B47111 /* icon_114_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_114_114.png; path = ../icon_114_114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +199,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1F99BA91797B4B10008638A /* CoreGraphics.framework in Frameworks */,
+				C1CC5E19178FE5B400DFF117 /* QuartzCore.framework in Frameworks */,
+				C1CC5E18178FE5AD00DFF117 /* AudioToolbox.framework in Frameworks */,
 				2C41B8FD178BF3410065AB62 /* SenTestingKit.framework in Frameworks */,
 				2C41B8FE178BF3410065AB62 /* UIKit.framework in Frameworks */,
 				2C41B8FF178BF3410065AB62 /* Foundation.framework in Frameworks */,
@@ -202,6 +232,8 @@
 				2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */,
 				2C41B910178BF3E20065AB62 /* LSPomoCycleTest.h */,
 				2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */,
+				C156E7A81793E19B00079EDC /* LSTaskViewControllerTest.h */,
+				C156E7A91793E19B00079EDC /* LSTaskViewControllerTest.m */,
 				2C41B901178BF3410065AB62 /* Supporting Files */,
 			);
 			path = PomoTimerUnitTest;
@@ -352,6 +384,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C1F99BA81797B37D0008638A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		2C41B8FA178BF3410065AB62 /* PomoTimerUnitTest */ = {
 			isa = PBXNativeTarget;
@@ -361,10 +403,12 @@
 				2C41B8F7178BF3410065AB62 /* Frameworks */,
 				2C41B8F8178BF3410065AB62 /* Resources */,
 				2C41B8F9178BF3410065AB62 /* ShellScript */,
+				C1F99BA81797B37D0008638A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C1CC5DC7178FE42F00DFF117 /* PBXTargetDependency */,
 			);
 			name = PomoTimerUnitTest;
 			productName = PomoTimerUnitTest;
@@ -395,7 +439,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LS;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Lingostar;
 			};
 			buildConfigurationList = 2CC2A47A16A3D0010037CF76 /* Build configuration list for PBXProject "PomoTimer" */;
@@ -501,6 +545,18 @@
 				2C41B908178BF3410065AB62 /* PomoTimerUnitTest.m in Sources */,
 				2C41B90F178BF3AA0065AB62 /* LSPomoTaskTest.m in Sources */,
 				2C41B912178BF3E20065AB62 /* LSPomoCycleTest.m in Sources */,
+				C1CC5E15178FE4EA00DFF117 /* LSPomoTask.m in Sources */,
+				C1CC5E16178FE4F000DFF117 /* LSPomoCycle.m in Sources */,
+				C1CC5E17178FE51A00DFF117 /* LSPomoFunction.m in Sources */,
+				C156E7A71793D65C00079EDC /* LSTaskViewController.m in Sources */,
+				C156E7AA1793E19B00079EDC /* LSTaskViewControllerTest.m in Sources */,
+				C1F99BAA1797B5FE0008638A /* LSTimerButton.m in Sources */,
+				C1F99BAB1797B6010008638A /* LSNumberPushingView.m in Sources */,
+				C1F99BAC1797B6030008638A /* UIImage+ColorAtPixel.m in Sources */,
+				C1F99BAD1797B6150008638A /* LSToDoTableViewController.m in Sources */,
+				C1F99BAE1797B70B0008638A /* LSHistoryListViewController.m in Sources */,
+				C1F99BAF1797B70E0008638A /* LSHistoryDetailViewController.m in Sources */,
+				C1F99BB01797B7170008638A /* UIViewController+Storyboard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +581,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1CC5DC7178FE42F00DFF117 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CC2A47F16A3D0010037CF76 /* PomoTimer */;
+			targetProxy = C1CC5DC6178FE42F00DFF117 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2C41B903178BF3410065AB62 /* InfoPlist.strings */ = {
@@ -666,6 +730,7 @@
 				2C41B90B178BF3410065AB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CC2A47A16A3D0010037CF76 /* Build configuration list for PBXProject "PomoTimer" */ = {
 			isa = XCConfigurationList;

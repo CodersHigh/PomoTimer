@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "LSPomoTask.h"
 
 @interface LSPomoTaskTest : SenTestCase
 

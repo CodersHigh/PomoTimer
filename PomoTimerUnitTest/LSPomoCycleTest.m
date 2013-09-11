@@ -7,7 +7,17 @@
 //
 
 #import "LSPomoCycleTest.h"
-
 @implementation LSPomoCycleTest
+
+
+-(void)testResetTask{
+    //reset버튼을 눌렀을 때 ResetCurrentTask를 호출하는지 테스트
+
+
+}
+
+-(void)testChangeTaskName {
+    //TaskName이 변경 되었는지 테스트
+}
 
 @end

@@ -178,4 +178,10 @@
     
     return periodString;
 }
+
+
+- (NSTimer *)pomodoroTimer {
+    return _pomodoroTimer;
+}
+
 @end
