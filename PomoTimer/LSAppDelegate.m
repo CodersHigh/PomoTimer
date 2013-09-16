@@ -30,7 +30,6 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]){
         NSArray *unarchArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-        NSLog(@"Unarchive : %s", __FUNCTION__);
         _dailyPomodoroArray = [[NSMutableArray alloc] initWithArray:unarchArray];
     } else {
         _dailyPomodoroArray = [[NSMutableArray alloc] initWithCapacity:10];
@@ -38,12 +37,10 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
 
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    self.tempBackgroundDate = [NSDate date];
-    
     NSDate *userDefaultBackgroundDate = [[NSUserDefaults standardUserDefaults] objectForKey:kBackgroundDateKey];
     if (isSameDay(userDefaultBackgroundDate, [NSDate date])){
         _backgroundDate = userDefaultBackgroundDate;
-    } //앱을 종료한 날과 다시 켠 날이 같으면 backgroundDate를 유지. 다르면? 비어있음.
+    }
     return YES;
 }
 
@@ -51,7 +48,7 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    _backgroundDate =  self.tempBackgroundDate;//[NSDate date];
+    _backgroundDate = [NSDate date];
     NSLog(@"%s \r\n date = %@", __FUNCTION__, _backgroundDate);
 }
 
@@ -59,12 +56,12 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    _backgroundDate =  self.tempBackgroundDate;//[NSDate date];
+    _backgroundDate = [NSDate date];
     
     NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
     
     [NSKeyedArchiver archiveRootObject:_dailyPomodoroArray toFile:filePath];
-    NSLog(@"Archive : %s", __FUNCTION__);
+    
     NSLog(@"%s \r\n date = %@", __FUNCTION__, _backgroundDate);
 }
 
@@ -76,6 +73,7 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     //그 경우 Local Notification이 해결해 주겠지?
     
     
+    
     UINavigationController *mainNavigationController = (UINavigationController *)self.window.rootViewController;
     LSTaskViewController *taskViewController = mainNavigationController.topViewController;
     
@@ -85,7 +83,6 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
         int currentTaskTime = currentTask.taskTimeInSecond;
         int resultTime = currentTaskTime - timeGap;
         currentTask.taskTimeInSecond = resultTime;
-        NSLog(@"timegap:%d", timeGap);
     }
 }
 
@@ -101,7 +98,7 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     NSString *filePath = [documentDirectory() stringByAppendingPathComponent:PomodoroFileName];
     
     [NSKeyedArchiver archiveRootObject:_dailyPomodoroArray toFile:filePath];
-     NSLog(@"Archive : %s", __FUNCTION__);
+    
     [[NSUserDefaults standardUserDefaults] setObject:_backgroundDate forKey:kBackgroundDateKey];
 }
 
@@ -156,7 +153,4 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     [newTodayDict setValue:newArray forKey:kPomodoroCyclesKey];
     self.todaysPomodoro = newTodayDict;
 }
-
-
-
 @end

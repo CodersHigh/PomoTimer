@@ -30,7 +30,4 @@
 - (NSString *)periodString;
 - (void)resetTask;
 
-//For Unit Test
-- (NSTimer *)pomodoroTimer;
-
 @end

@@ -20,20 +20,6 @@
                ReferencedContainer = "container:PomoTimer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2C41B8FA178BF3410065AB62"
-               BuildableName = "PomoTimerUnitTest.octest"
-               BlueprintName = "PomoTimerUnitTest"
-               ReferencedContainer = "container:PomoTimer.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2C41B8FA178BF3410065AB62"
-               BuildableName = "PomoTimerUnitTest.octest"
-               BlueprintName = "PomoTimerUnitTest"
-               ReferencedContainer = "container:PomoTimer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -95,12 +95,7 @@
         float currentAngle = - unitValue * M_PI *2;
         CATransform3D rotationTransform = CATransform3DMakeRotation(currentAngle, 0.0, 0.0, 1.0);
         _progressPoint.layer.transform = rotationTransform;
-
-    } else if (currentTask.typeOfTask == RECESS) {
-        _progressPoint.layer.transform = CATransform3DMakeRotation(0.0, 0.0, 0.0, 1.0);
     }
-    
-    
 }
 
 
@@ -246,7 +241,5 @@
     // Drawing code
 }
 */
-
-
 
 @end

@@ -98,7 +98,6 @@
     
     _cycleView.targetPanelNum = count%10;
     
-    _pomoCycle = [[[self appDelegate] todaysPomoCycleArray] lastObject];
     [self updatePomodoroImageView];
 }
 
@@ -198,9 +197,9 @@
     LSPomoTask *newTask = _pomoCycle.currentTask;
     if (newTask == nil){//다음 사이클이 있는 경우 사이클 오브젝트 변경
         _pomoCycle = [self nextAvailableCycle];
-    
+        newTask = _pomoCycle.currentTask;
     }
-    newTask = _pomoCycle.currentTask;
+
     if (notification != nil)
         newTask.status = COUNTING;
     
@@ -317,7 +316,7 @@
     
     if (rowCount == 0)
         rowCount++;
-//    NSLog(@"current section: %d, row count: %d", section, rowCount);
+    NSLog(@"current section: %d, row count: %d", section, rowCount);
     return rowCount;
 }
 
@@ -354,8 +353,4 @@
     return sectionLabel;
 }
 
-
--(LSTimerButton *)pomoTimerButton {
-    return _pomoTimerButton;
-}
 @end

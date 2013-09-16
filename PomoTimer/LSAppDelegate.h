@@ -15,7 +15,6 @@
 @property NSMutableArray *dailyPomodoroArray;
 @property NSDictionary *todaysPomodoro;
 @property (readonly) NSMutableArray *todaysPomoCycleArray;
-@property NSDate *tempBackgroundDate;
 
 - (void)createNewPomoCycle;
 - (void)changeTodaysPomoCycleArray:(NSArray *)newArray;
