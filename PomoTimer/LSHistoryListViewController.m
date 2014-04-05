@@ -12,6 +12,9 @@
 #import "LSPomoCycle.h"
 
 @interface LSHistoryListViewController ()
+{
+    NSMutableDictionary *_monthlyPomodoroDict;
+}
 
 - (LSAppDelegate *)appDelegate;
 @end
@@ -35,6 +38,26 @@
     self.title = @"History";
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _monthlyPomodoroDict = [[NSMutableDictionary alloc] init];
+    
+    NSDictionary *dailyPomodoro;
+    for (dailyPomodoro in [self appDelegate].dailyPomodoroArray) {
+        NSDate *pomodoroDate = [dailyPomodoro valueForKey:kPomodoroDateKey];
+        int month = monthOfDate(pomodoroDate);
+        int year = yearOfDate(pomodoroDate);
+        NSString *key = [NSString stringWithFormat:@"%d_%d", year, month];
+        NSMutableArray *monthlyArrayforKey = [_monthlyPomodoroDict valueForKey:key];
+        if (!monthlyArrayforKey) {
+            monthlyArrayforKey = [[NSMutableArray alloc] initWithCapacity:10];
+            [_monthlyPomodoroDict setValue:monthlyArrayforKey forKey:key];
+        }
+        [monthlyArrayforKey addObject:dailyPomodoro];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -50,13 +73,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    int count = [[_monthlyPomodoroDict allKeys] count];
+    return count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int numberOfHistory = [[self appDelegate].dailyPomodoroArray count];
-    return numberOfHistory;
+    NSArray *allKeys = [_monthlyPomodoroDict allKeys];
+    NSString *key = [allKeys objectAtIndex:section];
+    NSArray *thisSectionArray = [_monthlyPomodoroDict valueForKey:key];
+    
+    //int numberOfHistory = [[self appDelegate].dailyPomodoroArray count];
+    return [thisSectionArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +92,12 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *dailyPomodoro = [[self appDelegate].dailyPomodoroArray objectAtIndex:indexPath.row];
+    NSArray *allKeys = [_monthlyPomodoroDict allKeys];
+    NSString *key = [allKeys objectAtIndex:indexPath.section];
+    NSArray *thisSectionArray = [_monthlyPomodoroDict valueForKey:key];
+    NSDictionary *dailyPomodoro = [thisSectionArray objectAtIndex:indexPath.row];
+    
+    //NSDictionary *dailyPomodoro = [[self appDelegate].dailyPomodoroArray objectAtIndex:indexPath.row];
     NSDate *pomodoroDate = [dailyPomodoro valueForKey:kPomodoroDateKey];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -84,6 +117,11 @@
     return cell;
 }
 
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    NSArray *sectionTitles = [_monthlyPomodoroDict allKeys];
+    return sectionTitles;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
