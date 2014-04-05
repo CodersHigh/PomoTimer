@@ -12,10 +12,4 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property NSMutableArray *dailyPomodoroArray;
-@property NSDictionary *todaysPomodoro;
-@property (readonly) NSMutableArray *todaysPomoCycleArray;
-
-- (void)createNewPomoCycle;
-- (void)changeTodaysPomoCycleArray:(NSArray *)newArray;
 @end

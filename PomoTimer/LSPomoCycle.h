@@ -11,17 +11,14 @@
 
 @interface LSPomoCycle : NSObject
 
-- (void)resetCurrentTask;
-- (int)doneTaskCount;
-- (int)startedTaskCount;
+- (id)initWithType:(int)typeOfCycle;
 
-- (BOOL)isTaskDone:(int)index;
-- (BOOL)isTaskStarted:(int)index;
-- (void)changeTaskName:(NSString *)newName atTaskIndex:(int)index;
-
-@property NSArray *pomoArray;
-@property NSArray *recessArray;
-
+@property NSArray *taskArray;
 @property LSPomoTask *currentTask;
+@property int typeOfCycle;
+//0 25Pomodoro & 5Recess
+//1 25P & 5R & 25P & 5R
+//2 25P & 5R & 25P & 5R & 25P & 5R
+//3 25P & 5R & 25P & 5R & 25P & 5R & 25P & 30I
 
 @end

@@ -1,38 +1,40 @@
 //
-//  LSHistoryListViewController.m
+//  LSTableViewController.m
 //  PomoTimer
 //
-//  Created by Lingostar on 13. 1. 6..
-//  Copyright (c) 2013년 Lingostar. All rights reserved.
+//  Created by Lingostar on 12. 12. 30..
+//  Copyright (c) 2012년 Lingostar. All rights reserved.
 //
 
-#import "LSHistoryListViewController.h"
-#import "LSAppDelegate.h"
-#import "LSHistoryDetailViewController.h"
-#import "LSPomoCycle.h"
+#import "LSTableViewController.h"
+#import "LSTaskViewController.h"
 
-@interface LSHistoryListViewController ()
+@interface LSTableViewController ()
 
-- (LSAppDelegate *)appDelegate;
 @end
 
-@implementation LSHistoryListViewController
+@implementation LSTableViewController
 
-/*- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
-}*/
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.title = @"History";
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,22 +43,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (LSAppDelegate *)appDelegate
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    return [[UIApplication sharedApplication] delegate];
+    LSTaskViewController *destController = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    destController.indexPathRow = indexPath.row;
+    
 }
 
 #pragma mark - Table view data source
-
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int numberOfHistory = [[self appDelegate].dailyPomodoroArray count];
-    return numberOfHistory;
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,34 +72,11 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSDictionary *dailyPomodoro = [[self appDelegate].dailyPomodoroArray objectAtIndex:indexPath.row];
-    NSDate *pomodoroDate = [dailyPomodoro valueForKey:kPomodoroDateKey];
+    // Configure the cell...
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy년 MM월dd일의 작업"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"KST"]];
-    
-    cell.textLabel.text = [dateFormatter stringFromDate:pomodoroDate];
-    
-    NSArray *pomoCycleArray = [dailyPomodoro valueForKey:kPomodoroCyclesKey];
-    LSPomoCycle *currentCycle = [pomoCycleArray lastObject];
-    int dailyCycle, dailyTimes, dailyTotal;
-    dailyCycle = [pomoCycleArray count] - 1;
-    dailyTimes = [currentCycle doneTaskCount];
-    dailyTotal = dailyCycle*4 + dailyTimes;
-    NSString *cycleString = [NSString stringWithFormat:@"%d Cycle %d Times , Total %d Pomodoro", dailyCycle, dailyTimes, dailyTotal];
-    cell.detailTextLabel.text  = cycleString;
     return cell;
 }
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    LSHistoryDetailViewController *destController = segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSDictionary *dailyPomodoro = [[self appDelegate].dailyPomodoroArray objectAtIndex:indexPath.row];
-    destController.pomodoroOfTheDay = dailyPomodoro;
-}
+*/
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,12 +121,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-
-    //LSHistoryDetailViewController *detailViewController = [[LSHistoryDetailViewController alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
-     //[self.navigationController pushViewController:detailViewController animated:YES];
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
-
 
 @end
