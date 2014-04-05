@@ -1,5 +1,5 @@
 //
-//  LSTaskViewController.h
+//  LSViewController.h
 //  PomoTimer
 //
 //  Created by Lingostar on 12. 12. 30..
@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class LSPomoCycle;
 
 @interface LSTaskViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property int indexPathRow;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *taskScrollView;
-@property NSDictionary *todaysPomodoroDict;
-@property LSPomoCycle *pomoCycle;
+- (IBAction)startPause:(id)sender;
+- (IBAction)stop:(id)sender;
+
 @end

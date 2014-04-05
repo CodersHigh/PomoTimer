@@ -8,105 +8,74 @@
 
 #import "LSPomoCycle.h"
 
+#define POMODORO_TIME 25*60
+#define RECESS_TIME 5*60
+#define INTERMISSION_TIME 30*60
 @implementation LSPomoCycle
 
-- (id)init;
+
+- (id)initWithType:(int)typeOfCycle;
 {
     self = [super init];
     if (self != nil){
-        NSString *pomoTaskName = @"Work!";
-        NSString *recessTaskName = @"Take a break..";
         NSMutableArray *pomoCycle = [[NSMutableArray alloc] initWithCapacity:10];
-        NSMutableArray *recessCycle = [[NSMutableArray alloc] initWithCapacity:10];
         LSPomoTask *firstPomo = [[LSPomoTask alloc] init];
-        firstPomo.taskTimeInSecond = POMODORO_TIME-1;
+        firstPomo.taskTimeInSecond = POMODORO_TIME;
         firstPomo.typeOfTask = POMODORO;
-        firstPomo.taskName = pomoTaskName;
         [pomoCycle addObject:firstPomo];
         
         LSPomoTask *firstRecess = [[LSPomoTask alloc] init];
-        firstRecess.taskTimeInSecond = RECESS_TIME-1;
+        firstRecess.taskTimeInSecond = RECESS_TIME;
         firstRecess.typeOfTask = RECESS;
-        firstRecess.taskName = recessTaskName;
-        [recessCycle addObject:firstRecess];
+        [pomoCycle addObject:firstRecess];
         
-        LSPomoTask *secondPomo = [[LSPomoTask alloc] init];
-        secondPomo.taskTimeInSecond = POMODORO_TIME-1;
-        secondPomo.typeOfTask = POMODORO;
-        secondPomo.taskName = pomoTaskName;
-        [pomoCycle addObject:secondPomo];
+        if (typeOfCycle > 0) {
+            LSPomoTask *secondPomo = [[LSPomoTask alloc] init];
+            secondPomo.taskTimeInSecond = POMODORO_TIME;
+            secondPomo.typeOfTask = POMODORO;
+            [pomoCycle addObject:secondPomo];
+            
+            LSPomoTask *secondRecess = [[LSPomoTask alloc] init];
+            secondRecess.taskTimeInSecond = RECESS_TIME;
+            secondRecess.typeOfTask = RECESS;
+            [pomoCycle addObject:secondRecess];
+        }
+        if (typeOfCycle > 1) {
+            LSPomoTask *thirdPomo = [[LSPomoTask alloc] init];
+            thirdPomo.taskTimeInSecond = POMODORO_TIME;
+            thirdPomo.typeOfTask = POMODORO;
+            [pomoCycle addObject:thirdPomo];
+            
+            LSPomoTask *thirdRecess = [[LSPomoTask alloc] init];
+            thirdRecess.taskTimeInSecond = RECESS_TIME;
+            thirdRecess.typeOfTask = RECESS;
+            [pomoCycle addObject:thirdRecess];
+        }
+        if (typeOfCycle > 2) {
+            LSPomoTask *fourthPomo = [[LSPomoTask alloc] init];
+            fourthPomo.taskTimeInSecond = POMODORO_TIME;
+            fourthPomo.typeOfTask = POMODORO;
+            [pomoCycle addObject:fourthPomo];
+            
+            LSPomoTask *intermission = [[LSPomoTask alloc] init];
+            intermission.taskTimeInSecond = INTERMISSION_TIME;
+            intermission.typeOfTask = RECESS;
+            [pomoCycle addObject:intermission];
+        }
         
-        LSPomoTask *secondRecess = [[LSPomoTask alloc] init];
-        secondRecess.taskTimeInSecond = RECESS_TIME-1;
-        secondRecess.typeOfTask = RECESS;
-        secondRecess.taskName = recessTaskName;
-        [recessCycle addObject:secondRecess];
+        self.taskArray = (NSArray *)pomoCycle;
         
-        LSPomoTask *thirdPomo = [[LSPomoTask alloc] init];
-        thirdPomo.taskTimeInSecond = POMODORO_TIME-1;
-        thirdPomo.typeOfTask = POMODORO;
-        thirdPomo.taskName = pomoTaskName;
-        [pomoCycle addObject:thirdPomo];
-        
-        LSPomoTask *thirdRecess = [[LSPomoTask alloc] init];
-        thirdRecess.taskTimeInSecond = RECESS_TIME-1;
-        thirdRecess.typeOfTask = RECESS;
-        thirdRecess.taskName = recessTaskName;
-        [recessCycle addObject:thirdRecess];
-        
-        LSPomoTask *fourthPomo = [[LSPomoTask alloc] init];
-        fourthPomo.taskTimeInSecond = POMODORO_TIME-1;
-        fourthPomo.typeOfTask = POMODORO;
-        fourthPomo.taskName = pomoTaskName;
-        [pomoCycle addObject:fourthPomo];
-        
-        LSPomoTask *intermission = [[LSPomoTask alloc] init];
-        intermission.taskTimeInSecond = RECESS_TIME-1;
-        intermission.typeOfTask = RECESS;
-        intermission.taskName = @"- - intermission - -";
-        [recessCycle addObject:intermission];
-        
-        self.pomoArray = (NSArray *)pomoCycle;
-        self.recessArray = (NSArray *)recessCycle;
-        
-        
-        [firstPomo release];
-        [firstRecess release];
-        [secondPomo release];
-        [secondRecess release];
-        [thirdPomo release];
-        [thirdRecess release];
-        [fourthPomo release];
-        [intermission release];
-        [pomoCycle release];
-        [recessCycle release];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startNextTask:) name:kPomodoroTaskDone object:nil];
+
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [super dealloc];
-    self.currentTask = nil;
-    self.pomoArray = nil;
-    self.recessArray = nil;
-}
-
-- (id) initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    if (self != nil){
-        self.pomoArray = [aDecoder decodeObjectForKey:@"PomoArray"];
-        self.recessArray = [aDecoder decodeObjectForKey:@"RecessArray"];
-    }
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.pomoArray forKey:@"PomoArray"];
-    [aCoder encodeObject:self.recessArray forKey:@"RecessArray"];
+    [_currentTask stopTask];
+    _taskArray = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kPomodoroTaskDone object:nil];
 }
 
 - (LSPomoTask *)currentTask
@@ -114,86 +83,22 @@
     if (_currentTask != nil && _currentTask.status < DONE){
         return _currentTask;
     } else {
-        for (int i=0; i < [self.recessArray count]; i++) {
-            LSPomoTask *pomoTask = [self.pomoArray objectAtIndex:i];
-            LSPomoTask *recessTask = [self.recessArray objectAtIndex:i];
-            if (pomoTask.status < DONE) {
-                _currentTask = pomoTask;
-                return _currentTask;
-            } else if (pomoTask.status == DONE && recessTask.status < DONE)
-            {
-                _currentTask = recessTask;
+        for (LSPomoTask *task in self.taskArray) {
+            if (task.status < DONE){
+                _currentTask = task;
                 return _currentTask;
             }
         }
     }
-    
     return nil;
 }
 
-
-- (void)resetCurrentTask
+- (void)startNextTask:(NSNotification *)notification
 {
     LSPomoTask *currentTask = self.currentTask;
-    if (currentTask.typeOfTask == POMODORO){
-        [currentTask resetTask];
-        currentTask.taskTimeInSecond = POMODORO_TIME;
+    if (currentTask != nil && currentTask.status == READY){
+        currentTask.status = COUNTING;
     }
-}
-
-
-- (int)doneTaskCount
-{
-    int count = 0;
-    for (LSPomoTask *pomoTask in _pomoArray) {
-        if (pomoTask.status == DONE) count++;
-    }
-    
-    return count;
-}
-
-- (int)startedTaskCount
-{
-    int count = 0;
-    for (LSPomoTask *pomoTask in _pomoArray) {
-        if (pomoTask.startDate != nil) count++;
-    }
-    
-    return count;
-}
-
-- (BOOL)isTaskDone:(int)index
-{
-    LSPomoTask *currentTask = [self.pomoArray objectAtIndex:index];
-    
-    if (currentTask.status == DONE) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (BOOL)isTaskStarted:(int)index
-{
-    LSPomoTask *currentTask = [self.pomoArray objectAtIndex:index];
-    
-    if (currentTask.status > READY) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (void)changeTaskName:(NSString *)newName atTaskIndex:(int)index
-{
-    NSMutableArray *newTaskArray = [NSMutableArray arrayWithArray:self.pomoArray];
-    LSPomoTask *currentTask = [newTaskArray objectAtIndex:index];
-    
-    [currentTask setTaskName:newName];
-    [newTaskArray replaceObjectAtIndex:index withObject:currentTask];
-    
-    self.pomoArray = (NSArray *)newTaskArray;
-    
 }
 
 @end

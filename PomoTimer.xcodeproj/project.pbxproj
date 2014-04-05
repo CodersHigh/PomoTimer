@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C41B8FD178BF3410065AB62 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */; };
-		2C41B8FE178BF3410065AB62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48416A3D0010037CF76 /* UIKit.framework */; };
-		2C41B8FF178BF3410065AB62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48616A3D0020037CF76 /* Foundation.framework */; };
-		2C41B905178BF3410065AB62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C41B903178BF3410065AB62 /* InfoPlist.strings */; };
-		2C41B908178BF3410065AB62 /* PomoTimerUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */; };
-		2C41B90F178BF3AA0065AB62 /* LSPomoTaskTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */; };
-		2C41B912178BF3E20065AB62 /* LSPomoCycleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */; };
 		2CC2A48516A3D0020037CF76 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48416A3D0010037CF76 /* UIKit.framework */; };
 		2CC2A48716A3D0020037CF76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48616A3D0020037CF76 /* Foundation.framework */; };
 		2CC2A48916A3D0020037CF76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */; };
@@ -26,69 +19,17 @@
 		2CCD582D170D3E5100FBB699 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */; };
 		2CCD582F170D44CE00FBB699 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */; };
 		2CCD5837170D451600FBB699 /* LSPomoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5830170D451500FBB699 /* LSPomoTask.m */; };
-		2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; };
 		2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5834170D451500FBB699 /* LSTaskViewController.m */; };
+		2CCD583A170D451600FBB699 /* LSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5836170D451500FBB699 /* LSTableViewController.m */; };
+		2CCD5840170D453B00FBB699 /* naviBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583B170D453A00FBB699 /* naviBar.png */; };
 		2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */; };
 		2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */; };
 		2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583E170D453A00FBB699 /* Pomodoro_On.png */; };
-		2CCD5848170D533800FBB699 /* LSPomoFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5847170D533800FBB699 /* LSPomoFunction.m */; };
-		2CCD584E170D53A100FBB699 /* LSHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */; };
-		2CCD5851170D543600FBB699 /* LSNumberPushingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5850170D543600FBB699 /* LSNumberPushingView.m */; };
-		2CCD5854170D544300FBB699 /* UIViewController+Storyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */; };
-		2CCD5867170D54D600FBB699 /* cycle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585D170D54D500FBB699 /* cycle_0.png */; };
-		2CCD5868170D54D600FBB699 /* cycle_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585E170D54D500FBB699 /* cycle_1.png */; };
-		2CCD5869170D54D600FBB699 /* cycle_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD585F170D54D500FBB699 /* cycle_2.png */; };
-		2CCD586A170D54D600FBB699 /* cycle_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5860170D54D500FBB699 /* cycle_3.png */; };
-		2CCD586B170D54D600FBB699 /* cycle_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5861170D54D500FBB699 /* cycle_4.png */; };
-		2CCD586C170D54D600FBB699 /* cycle_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5862170D54D500FBB699 /* cycle_5.png */; };
-		2CCD586D170D54D600FBB699 /* cycle_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5863170D54D500FBB699 /* cycle_6.png */; };
-		2CCD586E170D54D600FBB699 /* cycle_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5864170D54D500FBB699 /* cycle_7.png */; };
-		2CCD586F170D54D600FBB699 /* cycle_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5865170D54D600FBB699 /* cycle_8.png */; };
-		2CCD5870170D54D600FBB699 /* cycle_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5866170D54D600FBB699 /* cycle_9.png */; };
-		2CCD587C170D54E600FBB699 /* num_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5871170D54E500FBB699 /* num_0.png */; };
-		2CCD587D170D54E600FBB699 /* num_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5872170D54E500FBB699 /* num_1.png */; };
-		2CCD587E170D54E600FBB699 /* num_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5873170D54E500FBB699 /* num_2.png */; };
-		2CCD587F170D54E600FBB699 /* num_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5874170D54E500FBB699 /* num_3.png */; };
-		2CCD5880170D54E600FBB699 /* num_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5875170D54E500FBB699 /* num_4.png */; };
-		2CCD5881170D54E600FBB699 /* num_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5876170D54E600FBB699 /* num_5.png */; };
-		2CCD5882170D54E600FBB699 /* num_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5877170D54E600FBB699 /* num_6.png */; };
-		2CCD5883170D54E600FBB699 /* num_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5878170D54E600FBB699 /* num_7.png */; };
-		2CCD5884170D54E600FBB699 /* num_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5879170D54E600FBB699 /* num_8.png */; };
-		2CCD5885170D54E600FBB699 /* num_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD587A170D54E600FBB699 /* num_9.png */; };
-		2CCD5886170D54E600FBB699 /* num_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD587B170D54E600FBB699 /* num_shadow.png */; };
-		2CCD5888170D57E600FBB699 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD5887170D57E600FBB699 /* QuartzCore.framework */; };
-		2CCD588C170DAF3C00FBB699 /* RecordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588B170DAF3C00FBB699 /* RecordView.xib */; };
-		2CCD5898170DB02C00FBB699 /* button_reset_enable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */; };
-		2CCD5899170DB02C00FBB699 /* panel_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588E170DB02B00FBB699 /* panel_default@2x.png */; };
-		2CCD589A170DB02C00FBB699 /* panel_pomo_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */; };
-		2CCD589B170DB02C00FBB699 /* panel_recess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */; };
-		2CCD589C170DB02C00FBB699 /* point_black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5891170DB02B00FBB699 /* point_black@2x.png */; };
-		2CCD589D170DB02C00FBB699 /* point_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5892170DB02B00FBB699 /* point_red@2x.png */; };
-		2CCD589E170DB02C00FBB699 /* button_history@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5893170DB02C00FBB699 /* button_history@2x.png */; };
-		2CCD589F170DB02C00FBB699 /* button_reset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5894170DB02C00FBB699 /* button_reset@2x.png */; };
-		2CCD58A0170DB02C00FBB699 /* button_todo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5895170DB02C00FBB699 /* button_todo@2x.png */; };
-		2CCD58A1170DB02C00FBB699 /* status_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5896170DB02C00FBB699 /* status_pause@2x.png */; };
-		2CCD58A2170DB02C00FBB699 /* status_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD5897170DB02C00FBB699 /* status_play@2x.png */; };
-		2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */; };
-		2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */; };
-		2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */; };
-		2CCD58AD17105F2500FBB699 /* LSToDoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */; };
-		C1E2D73117714D5200B47111 /* icon_57_57.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E2D73017714D5200B47111 /* icon_57_57.png */; };
-		C1E2D73317714D6400B47111 /* icon_114_114.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E2D73217714D6400B47111 /* icon_114_114.png */; };
+		2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583F170D453A00FBB699 /* btn@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomoTimerUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2C41B902178BF3410065AB62 /* PomoTimerUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PomoTimerUnitTest-Info.plist"; sourceTree = "<group>"; };
-		2C41B904178BF3410065AB62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2C41B906178BF3410065AB62 /* PomoTimerUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PomoTimerUnitTest.h; sourceTree = "<group>"; };
-		2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PomoTimerUnitTest.m; sourceTree = "<group>"; };
-		2C41B909178BF3410065AB62 /* PomoTimerUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PomoTimerUnitTest-Prefix.pch"; sourceTree = "<group>"; };
-		2C41B90D178BF3AA0065AB62 /* LSPomoTaskTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoTaskTest.h; sourceTree = "<group>"; };
-		2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoTaskTest.m; sourceTree = "<group>"; };
-		2C41B910178BF3E20065AB62 /* LSPomoCycleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoCycleTest.h; sourceTree = "<group>"; };
-		2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoCycleTest.m; sourceTree = "<group>"; };
 		2CC2A48016A3D0010037CF76 /* PomoTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomoTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC2A48416A3D0010037CF76 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2CC2A48616A3D0020037CF76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,80 +50,21 @@
 		2CCD5832170D451500FBB699 /* LSPomoCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoCycle.m; sourceTree = "<group>"; };
 		2CCD5833170D451500FBB699 /* LSTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTaskViewController.h; sourceTree = "<group>"; };
 		2CCD5834170D451500FBB699 /* LSTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTaskViewController.m; sourceTree = "<group>"; };
+		2CCD5835170D451500FBB699 /* LSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTableViewController.h; sourceTree = "<group>"; };
+		2CCD5836170D451500FBB699 /* LSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTableViewController.m; sourceTree = "<group>"; };
+		2CCD583B170D453A00FBB699 /* naviBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naviBar.png; sourceTree = "<group>"; };
 		2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Dimmed.png; sourceTree = "<group>"; };
 		2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_Off.png; sourceTree = "<group>"; };
 		2CCD583E170D453A00FBB699 /* Pomodoro_On.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pomodoro_On.png; sourceTree = "<group>"; };
+		2CCD583F170D453A00FBB699 /* btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn@2x.png"; sourceTree = "<group>"; };
 		2CCD5845170D45BC00FBB699 /* LSPomoTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoTask.h; sourceTree = "<group>"; };
-		2CCD5846170D533800FBB699 /* LSPomoFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSPomoFunction.h; sourceTree = "<group>"; };
-		2CCD5847170D533800FBB699 /* LSPomoFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSPomoFunction.m; sourceTree = "<group>"; };
-		2CCD5849170D53A000FBB699 /* LSHistoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSHistoryDetailViewController.h; sourceTree = "<group>"; };
-		2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSHistoryDetailViewController.m; sourceTree = "<group>"; };
-		2CCD584B170D53A000FBB699 /* LSHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSHistoryListViewController.h; sourceTree = "<group>"; };
-		2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSHistoryListViewController.m; sourceTree = "<group>"; };
-		2CCD584F170D543600FBB699 /* LSNumberPushingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSNumberPushingView.h; sourceTree = "<group>"; };
-		2CCD5850170D543600FBB699 /* LSNumberPushingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSNumberPushingView.m; sourceTree = "<group>"; };
-		2CCD5852170D544300FBB699 /* UIViewController+Storyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Storyboard.h"; sourceTree = "<group>"; };
-		2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Storyboard.m"; sourceTree = "<group>"; };
-		2CCD585D170D54D500FBB699 /* cycle_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_0.png; sourceTree = "<group>"; };
-		2CCD585E170D54D500FBB699 /* cycle_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_1.png; sourceTree = "<group>"; };
-		2CCD585F170D54D500FBB699 /* cycle_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_2.png; sourceTree = "<group>"; };
-		2CCD5860170D54D500FBB699 /* cycle_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_3.png; sourceTree = "<group>"; };
-		2CCD5861170D54D500FBB699 /* cycle_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_4.png; sourceTree = "<group>"; };
-		2CCD5862170D54D500FBB699 /* cycle_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_5.png; sourceTree = "<group>"; };
-		2CCD5863170D54D500FBB699 /* cycle_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_6.png; sourceTree = "<group>"; };
-		2CCD5864170D54D500FBB699 /* cycle_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_7.png; sourceTree = "<group>"; };
-		2CCD5865170D54D600FBB699 /* cycle_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_8.png; sourceTree = "<group>"; };
-		2CCD5866170D54D600FBB699 /* cycle_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cycle_9.png; sourceTree = "<group>"; };
-		2CCD5871170D54E500FBB699 /* num_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_0.png; sourceTree = "<group>"; };
-		2CCD5872170D54E500FBB699 /* num_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_1.png; sourceTree = "<group>"; };
-		2CCD5873170D54E500FBB699 /* num_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_2.png; sourceTree = "<group>"; };
-		2CCD5874170D54E500FBB699 /* num_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_3.png; sourceTree = "<group>"; };
-		2CCD5875170D54E500FBB699 /* num_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_4.png; sourceTree = "<group>"; };
-		2CCD5876170D54E600FBB699 /* num_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_5.png; sourceTree = "<group>"; };
-		2CCD5877170D54E600FBB699 /* num_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_6.png; sourceTree = "<group>"; };
-		2CCD5878170D54E600FBB699 /* num_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_7.png; sourceTree = "<group>"; };
-		2CCD5879170D54E600FBB699 /* num_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_8.png; sourceTree = "<group>"; };
-		2CCD587A170D54E600FBB699 /* num_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_9.png; sourceTree = "<group>"; };
-		2CCD587B170D54E600FBB699 /* num_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = num_shadow.png; sourceTree = "<group>"; };
-		2CCD5887170D57E600FBB699 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		2CCD588B170DAF3C00FBB699 /* RecordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordView.xib; sourceTree = "<group>"; };
-		2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_reset_enable@2x.png"; sourceTree = "<group>"; };
-		2CCD588E170DB02B00FBB699 /* panel_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_default@2x.png"; sourceTree = "<group>"; };
-		2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_pomo_pause@2x.png"; sourceTree = "<group>"; };
-		2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "panel_recess@2x.png"; sourceTree = "<group>"; };
-		2CCD5891170DB02B00FBB699 /* point_black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point_black@2x.png"; sourceTree = "<group>"; };
-		2CCD5892170DB02B00FBB699 /* point_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "point_red@2x.png"; sourceTree = "<group>"; };
-		2CCD5893170DB02C00FBB699 /* button_history@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_history@2x.png"; sourceTree = "<group>"; };
-		2CCD5894170DB02C00FBB699 /* button_reset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_reset@2x.png"; sourceTree = "<group>"; };
-		2CCD5895170DB02C00FBB699 /* button_todo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_todo@2x.png"; sourceTree = "<group>"; };
-		2CCD5896170DB02C00FBB699 /* status_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_pause@2x.png"; sourceTree = "<group>"; };
-		2CCD5897170DB02C00FBB699 /* status_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "status_play@2x.png"; sourceTree = "<group>"; };
-		2CCD58A3170DBDBC00FBB699 /* LSTimerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTimerButton.h; sourceTree = "<group>"; };
-		2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTimerButton.m; sourceTree = "<group>"; };
-		2CCD58A6170DBF2200FBB699 /* UIImage+ColorAtPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorAtPixel.h"; sourceTree = "<group>"; };
-		2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorAtPixel.m"; sourceTree = "<group>"; };
-		2CCD58AB17105F2000FBB699 /* LSToDoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSToDoTableViewController.h; sourceTree = "<group>"; };
-		2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSToDoTableViewController.m; sourceTree = "<group>"; };
-		C1E2D73017714D5200B47111 /* icon_57_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_57_57.png; path = ../icon_57_57.png; sourceTree = "<group>"; };
-		C1E2D73217714D6400B47111 /* icon_114_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_114_114.png; path = ../icon_114_114.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2C41B8F7178BF3410065AB62 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2C41B8FD178BF3410065AB62 /* SenTestingKit.framework in Frameworks */,
-				2C41B8FE178BF3410065AB62 /* UIKit.framework in Frameworks */,
-				2C41B8FF178BF3410065AB62 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2CC2A47D16A3D0010037CF76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCD5888170D57E600FBB699 /* QuartzCore.framework in Frameworks */,
 				2CCD582D170D3E5100FBB699 /* AudioToolbox.framework in Frameworks */,
 				2CC2A48516A3D0020037CF76 /* UIKit.framework in Frameworks */,
 				2CC2A48716A3D0020037CF76 /* Foundation.framework in Frameworks */,
@@ -193,35 +75,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C41B900178BF3410065AB62 /* PomoTimerUnitTest */ = {
-			isa = PBXGroup;
-			children = (
-				2C41B906178BF3410065AB62 /* PomoTimerUnitTest.h */,
-				2C41B907178BF3410065AB62 /* PomoTimerUnitTest.m */,
-				2C41B90D178BF3AA0065AB62 /* LSPomoTaskTest.h */,
-				2C41B90E178BF3AA0065AB62 /* LSPomoTaskTest.m */,
-				2C41B910178BF3E20065AB62 /* LSPomoCycleTest.h */,
-				2C41B911178BF3E20065AB62 /* LSPomoCycleTest.m */,
-				2C41B901178BF3410065AB62 /* Supporting Files */,
-			);
-			path = PomoTimerUnitTest;
-			sourceTree = "<group>";
-		};
-		2C41B901178BF3410065AB62 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2C41B902178BF3410065AB62 /* PomoTimerUnitTest-Info.plist */,
-				2C41B903178BF3410065AB62 /* InfoPlist.strings */,
-				2C41B909178BF3410065AB62 /* PomoTimerUnitTest-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		2CC2A47516A3D0010037CF76 = {
 			isa = PBXGroup;
 			children = (
 				2CC2A48A16A3D0020037CF76 /* PomoTimer */,
-				2C41B900178BF3410065AB62 /* PomoTimerUnitTest */,
 				2CC2A48316A3D0010037CF76 /* Frameworks */,
 				2CC2A48116A3D0010037CF76 /* Products */,
 			);
@@ -231,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				2CC2A48016A3D0010037CF76 /* PomoTimer.app */,
-				2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,12 +95,10 @@
 		2CC2A48316A3D0010037CF76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2CCD5887170D57E600FBB699 /* QuartzCore.framework */,
 				2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */,
 				2CC2A48416A3D0010037CF76 /* UIKit.framework */,
 				2CC2A48616A3D0020037CF76 /* Foundation.framework */,
 				2CC2A48816A3D0020037CF76 /* CoreGraphics.framework */,
-				2C41B8FC178BF3410065AB62 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,24 +106,17 @@
 		2CC2A48A16A3D0020037CF76 /* PomoTimer */ = {
 			isa = PBXGroup;
 			children = (
-				2CCD588A170DAF1C00FBB699 /* View */,
-				2CCD5889170DAF0A00FBB699 /* Model */,
-				2CCD5846170D533800FBB699 /* LSPomoFunction.h */,
-				2CCD5847170D533800FBB699 /* LSPomoFunction.m */,
 				2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */,
-				2CCD588B170DAF3C00FBB699 /* RecordView.xib */,
 				2CC2A49316A3D0020037CF76 /* LSAppDelegate.h */,
 				2CC2A49416A3D0020037CF76 /* LSAppDelegate.m */,
+				2CCD5845170D45BC00FBB699 /* LSPomoTask.h */,
+				2CCD5830170D451500FBB699 /* LSPomoTask.m */,
+				2CCD5831170D451500FBB699 /* LSPomoCycle.h */,
+				2CCD5832170D451500FBB699 /* LSPomoCycle.m */,
 				2CCD5833170D451500FBB699 /* LSTaskViewController.h */,
 				2CCD5834170D451500FBB699 /* LSTaskViewController.m */,
-				2CCD5849170D53A000FBB699 /* LSHistoryDetailViewController.h */,
-				2CCD584A170D53A000FBB699 /* LSHistoryDetailViewController.m */,
-				2CCD584B170D53A000FBB699 /* LSHistoryListViewController.h */,
-				2CCD584C170D53A100FBB699 /* LSHistoryListViewController.m */,
-				2CCD58AB17105F2000FBB699 /* LSToDoTableViewController.h */,
-				2CCD58AC17105F2200FBB699 /* LSToDoTableViewController.m */,
-				2CCD5852170D544300FBB699 /* UIViewController+Storyboard.h */,
-				2CCD5853170D544300FBB699 /* UIViewController+Storyboard.m */,
+				2CCD5835170D451500FBB699 /* LSTableViewController.h */,
+				2CCD5836170D451500FBB699 /* LSTableViewController.m */,
 				2CC2A48B16A3D0020037CF76 /* Supporting Files */,
 			);
 			path = PomoTimer;
@@ -278,43 +125,11 @@
 		2CC2A48B16A3D0020037CF76 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C1E2D73217714D6400B47111 /* icon_114_114.png */,
-				C1E2D73017714D5200B47111 /* icon_57_57.png */,
-				2CCD588D170DB02A00FBB699 /* button_reset_enable@2x.png */,
-				2CCD588E170DB02B00FBB699 /* panel_default@2x.png */,
-				2CCD588F170DB02B00FBB699 /* panel_pomo_pause@2x.png */,
-				2CCD5890170DB02B00FBB699 /* panel_recess@2x.png */,
-				2CCD5891170DB02B00FBB699 /* point_black@2x.png */,
-				2CCD5892170DB02B00FBB699 /* point_red@2x.png */,
-				2CCD5893170DB02C00FBB699 /* button_history@2x.png */,
-				2CCD5894170DB02C00FBB699 /* button_reset@2x.png */,
-				2CCD5895170DB02C00FBB699 /* button_todo@2x.png */,
-				2CCD5896170DB02C00FBB699 /* status_pause@2x.png */,
-				2CCD5897170DB02C00FBB699 /* status_play@2x.png */,
-				2CCD585D170D54D500FBB699 /* cycle_0.png */,
-				2CCD585E170D54D500FBB699 /* cycle_1.png */,
-				2CCD585F170D54D500FBB699 /* cycle_2.png */,
-				2CCD5860170D54D500FBB699 /* cycle_3.png */,
-				2CCD5861170D54D500FBB699 /* cycle_4.png */,
-				2CCD5862170D54D500FBB699 /* cycle_5.png */,
-				2CCD5863170D54D500FBB699 /* cycle_6.png */,
-				2CCD5864170D54D500FBB699 /* cycle_7.png */,
-				2CCD5865170D54D600FBB699 /* cycle_8.png */,
-				2CCD5866170D54D600FBB699 /* cycle_9.png */,
-				2CCD5871170D54E500FBB699 /* num_0.png */,
-				2CCD5872170D54E500FBB699 /* num_1.png */,
-				2CCD5873170D54E500FBB699 /* num_2.png */,
-				2CCD5874170D54E500FBB699 /* num_3.png */,
-				2CCD5875170D54E500FBB699 /* num_4.png */,
-				2CCD5876170D54E600FBB699 /* num_5.png */,
-				2CCD5877170D54E600FBB699 /* num_6.png */,
-				2CCD5878170D54E600FBB699 /* num_7.png */,
-				2CCD5879170D54E600FBB699 /* num_8.png */,
-				2CCD587A170D54E600FBB699 /* num_9.png */,
-				2CCD587B170D54E600FBB699 /* num_shadow.png */,
+				2CCD583B170D453A00FBB699 /* naviBar.png */,
 				2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */,
 				2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */,
 				2CCD583E170D453A00FBB699 /* Pomodoro_On.png */,
+				2CCD583F170D453A00FBB699 /* btn@2x.png */,
 				2CC2A48C16A3D0020037CF76 /* PomoTimer-Info.plist */,
 				2CC2A48D16A3D0020037CF76 /* InfoPlist.strings */,
 				2CC2A49016A3D0020037CF76 /* main.m */,
@@ -326,51 +141,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2CCD5889170DAF0A00FBB699 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2CCD5845170D45BC00FBB699 /* LSPomoTask.h */,
-				2CCD5830170D451500FBB699 /* LSPomoTask.m */,
-				2CCD5831170D451500FBB699 /* LSPomoCycle.h */,
-				2CCD5832170D451500FBB699 /* LSPomoCycle.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		2CCD588A170DAF1C00FBB699 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2CCD58A6170DBF2200FBB699 /* UIImage+ColorAtPixel.h */,
-				2CCD58A7170DBF2200FBB699 /* UIImage+ColorAtPixel.m */,
-				2CCD584F170D543600FBB699 /* LSNumberPushingView.h */,
-				2CCD5850170D543600FBB699 /* LSNumberPushingView.m */,
-				2CCD58A3170DBDBC00FBB699 /* LSTimerButton.h */,
-				2CCD58A4170DBDBC00FBB699 /* LSTimerButton.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C41B8FA178BF3410065AB62 /* PomoTimerUnitTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2C41B90C178BF3410065AB62 /* Build configuration list for PBXNativeTarget "PomoTimerUnitTest" */;
-			buildPhases = (
-				2C41B8F6178BF3410065AB62 /* Sources */,
-				2C41B8F7178BF3410065AB62 /* Frameworks */,
-				2C41B8F8178BF3410065AB62 /* Resources */,
-				2C41B8F9178BF3410065AB62 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PomoTimerUnitTest;
-			productName = PomoTimerUnitTest;
-			productReference = 2C41B8FB178BF3410065AB62 /* PomoTimerUnitTest.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		2CC2A47F16A3D0010037CF76 /* PomoTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CC2A4A416A3D0020037CF76 /* Build configuration list for PBXNativeTarget "PomoTimer" */;
@@ -411,20 +184,11 @@
 			projectRoot = "";
 			targets = (
 				2CC2A47F16A3D0010037CF76 /* PomoTimer */,
-				2C41B8FA178BF3410065AB62 /* PomoTimerUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2C41B8F8178BF3410065AB62 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2C41B905178BF3410065AB62 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2CC2A47E16A3D0010037CF76 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -434,76 +198,17 @@
 				2CC2A49916A3D0020037CF76 /* Default@2x.png in Resources */,
 				2CC2A49B16A3D0020037CF76 /* Default-568h@2x.png in Resources */,
 				2CCD582F170D44CE00FBB699 /* MainStoryboard.storyboard in Resources */,
+				2CCD5840170D453B00FBB699 /* naviBar.png in Resources */,
 				2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */,
 				2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */,
 				2CCD5843170D453B00FBB699 /* Pomodoro_On.png in Resources */,
-				2CCD5867170D54D600FBB699 /* cycle_0.png in Resources */,
-				2CCD5868170D54D600FBB699 /* cycle_1.png in Resources */,
-				2CCD5869170D54D600FBB699 /* cycle_2.png in Resources */,
-				2CCD586A170D54D600FBB699 /* cycle_3.png in Resources */,
-				2CCD586B170D54D600FBB699 /* cycle_4.png in Resources */,
-				2CCD586C170D54D600FBB699 /* cycle_5.png in Resources */,
-				2CCD586D170D54D600FBB699 /* cycle_6.png in Resources */,
-				2CCD586E170D54D600FBB699 /* cycle_7.png in Resources */,
-				2CCD586F170D54D600FBB699 /* cycle_8.png in Resources */,
-				2CCD5870170D54D600FBB699 /* cycle_9.png in Resources */,
-				2CCD587C170D54E600FBB699 /* num_0.png in Resources */,
-				2CCD587D170D54E600FBB699 /* num_1.png in Resources */,
-				2CCD587E170D54E600FBB699 /* num_2.png in Resources */,
-				2CCD587F170D54E600FBB699 /* num_3.png in Resources */,
-				2CCD5880170D54E600FBB699 /* num_4.png in Resources */,
-				2CCD5881170D54E600FBB699 /* num_5.png in Resources */,
-				2CCD5882170D54E600FBB699 /* num_6.png in Resources */,
-				2CCD5883170D54E600FBB699 /* num_7.png in Resources */,
-				2CCD5884170D54E600FBB699 /* num_8.png in Resources */,
-				2CCD5885170D54E600FBB699 /* num_9.png in Resources */,
-				2CCD5886170D54E600FBB699 /* num_shadow.png in Resources */,
-				2CCD588C170DAF3C00FBB699 /* RecordView.xib in Resources */,
-				2CCD5898170DB02C00FBB699 /* button_reset_enable@2x.png in Resources */,
-				2CCD5899170DB02C00FBB699 /* panel_default@2x.png in Resources */,
-				2CCD589A170DB02C00FBB699 /* panel_pomo_pause@2x.png in Resources */,
-				2CCD589B170DB02C00FBB699 /* panel_recess@2x.png in Resources */,
-				2CCD589C170DB02C00FBB699 /* point_black@2x.png in Resources */,
-				2CCD589D170DB02C00FBB699 /* point_red@2x.png in Resources */,
-				2CCD589E170DB02C00FBB699 /* button_history@2x.png in Resources */,
-				2CCD589F170DB02C00FBB699 /* button_reset@2x.png in Resources */,
-				2CCD58A0170DB02C00FBB699 /* button_todo@2x.png in Resources */,
-				2CCD58A1170DB02C00FBB699 /* status_pause@2x.png in Resources */,
-				2CCD58A2170DB02C00FBB699 /* status_play@2x.png in Resources */,
-				C1E2D73117714D5200B47111 /* icon_57_57.png in Resources */,
-				C1E2D73317714D6400B47111 /* icon_114_114.png in Resources */,
+				2CCD5844170D453B00FBB699 /* btn@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2C41B8F9178BF3410065AB62 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		2C41B8F6178BF3410065AB62 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2C41B908178BF3410065AB62 /* PomoTimerUnitTest.m in Sources */,
-				2C41B90F178BF3AA0065AB62 /* LSPomoTaskTest.m in Sources */,
-				2C41B912178BF3E20065AB62 /* LSPomoCycleTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2CC2A47C16A3D0010037CF76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -513,28 +218,13 @@
 				2CCD5837170D451600FBB699 /* LSPomoTask.m in Sources */,
 				2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */,
 				2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */,
-				2CCD5848170D533800FBB699 /* LSPomoFunction.m in Sources */,
-				2CCD584E170D53A100FBB699 /* LSHistoryListViewController.m in Sources */,
-				2CCD5851170D543600FBB699 /* LSNumberPushingView.m in Sources */,
-				2CCD5854170D544300FBB699 /* UIViewController+Storyboard.m in Sources */,
-				2CCD58A5170DBDBC00FBB699 /* LSTimerButton.m in Sources */,
-				2CCD58A917103E9A00FBB699 /* UIImage+ColorAtPixel.m in Sources */,
-				2CCD58AA17104A2100FBB699 /* LSHistoryDetailViewController.m in Sources */,
-				2CCD58AD17105F2500FBB699 /* LSToDoTableViewController.m in Sources */,
+				2CCD583A170D451600FBB699 /* LSTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2C41B903178BF3410065AB62 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C41B904178BF3410065AB62 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		2CC2A48D16A3D0020037CF76 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -546,44 +236,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2C41B90A178BF3410065AB62 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PomoTimerUnitTest/PomoTimerUnitTest-Prefix.pch";
-				INFOPLIST_FILE = "PomoTimerUnitTest/PomoTimerUnitTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		2C41B90B178BF3410065AB62 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PomoTimerUnitTest/PomoTimerUnitTest-Prefix.pch";
-				INFOPLIST_FILE = "PomoTimerUnitTest/PomoTimerUnitTest-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		2CC2A4A216A3D0020037CF76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -659,15 +311,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2C41B90C178BF3410065AB62 /* Build configuration list for PBXNativeTarget "PomoTimerUnitTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2C41B90A178BF3410065AB62 /* Debug */,
-				2C41B90B178BF3410065AB62 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2CC2A47A16A3D0010037CF76 /* Build configuration list for PBXProject "PomoTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

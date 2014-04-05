@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioServices.h>
 
-@interface LSPomoTask : NSObject <NSCoding>
+static NSString *kPomodoroTaskDone = @"PomodoroTaskDone";
+static NSString *kPomodoroTimeChanged = @"PomodoroTimeChanged";
+
+@interface LSPomoTask : NSObject
+
+- (void)stopTask;
 
 @property int taskTimeInSecond;
 
@@ -22,12 +27,5 @@
 #define COUNTING 1
 #define PAUSE 2
 #define DONE 3
-
-@property (nonatomic, retain) NSString *taskName;
-@property NSDate *startDate;
-@property NSDate *endDate;
-
-- (NSString *)periodString;
-- (void)resetTask;
 
 @end
