@@ -14,9 +14,10 @@
 static NSString *PomodoroFileName = @"Pomodoro.pmtmr";
 static NSString *kBackgroundDateKey = @"BackgroundDate";
 
-@interface LSAppDelegate (){
-    NSDate *_backgroundDate;
-}
+@interface LSAppDelegate ()
+//{
+//    NSDate *_backgroundDate;
+//}
 
 @end
 @implementation LSAppDelegate
@@ -36,6 +37,9 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     }
 
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    
+    [self addObserver:self forKeyPath:@"backgroundDate" options:NULL context:nil];
     
     NSDate *userDefaultBackgroundDate = [[NSUserDefaults standardUserDefaults] objectForKey:kBackgroundDateKey];
     if (isSameDay(userDefaultBackgroundDate, [NSDate date])){
@@ -101,6 +105,17 @@ static NSString *kBackgroundDateKey = @"BackgroundDate";
     
     [[NSUserDefaults standardUserDefaults] setObject:_backgroundDate forKey:kBackgroundDateKey];
 }
+
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"backgroundDate"]){
+        [[NSUserDefaults standardUserDefaults] setObject:self.backgroundDate forKey:kBackgroundDateKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
 
 - (NSDictionary *)todaysPomodoro
 {
