@@ -6,6 +6,7 @@
 //  Copyright (c) 2012년 Lingostar. All rights reserved.
 //
 
+static NSString *kTaskStatusChangedKey = @"PomodoTaskStatusChaged";
 #import "LSPomoTask.h"
 
 @interface LSPomoTask ()
@@ -24,7 +25,9 @@
     if (self != nil){
         _status = READY;
         self.taskName = @"Non Title.";
-        [self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        //[self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChaged:) name:kTaskStatusChangedKey object:nil];
     }
     return self;
 }
@@ -51,7 +54,9 @@
             _status = unarchStatus;
         }
         
-        [self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
+        //[self addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(statusChaged:) name:kTaskStatusChangedKey object:nil];
     }
     return self;
 }
@@ -80,22 +85,30 @@
     [self invalidateTask];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)setStatus:(int)status
 {
-    int oldValue = [[change valueForKey:NSKeyValueChangeOldKey] intValue];
-    int newValue = [[change valueForKey:NSKeyValueChangeNewKey] intValue];
+    _status = status;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kTaskStatusChangedKey object:self userInfo:nil];
+}
+
+- (void)statusChaged:(NSNotification *)notification{
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+//{
+//    int oldValue = [[change valueForKey:NSKeyValueChangeOldKey] intValue];
+//    int newValue = [[change valueForKey:NSKeyValueChangeNewKey] intValue];
+//    
+//    if (oldValue == newValue) return;
+//    
+//    if (oldValue == DONE){
+//        //에러처리
+//    }
+//    
+//    if (newValue == READY){
+//        //에러처리
+//        NSLog(@"New Value is READY");
+//    }
     
-    if (oldValue == newValue) return;
-    
-    if (oldValue == DONE){
-        //에러처리
-    }
-    
-    if (newValue == READY){
-        //에러처리
-        NSLog(@"New Value is READY");
-    }
-    
+    int newValue = [[notification object] status];
     switch (newValue) {
         case READY:
             self.taskTimeInSecond = POMODORO_TIME;
@@ -103,7 +116,7 @@
             break;
         case COUNTING:
             [[NSNotificationCenter defaultCenter] postNotificationName:kPomodoroTimeChanged object:self];
-            if (oldValue == READY & self.startDate == nil){
+            if (self.startDate == nil){
                 self.startDate = [NSDate date];
             }
             _pomodoroTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeGoes:) userInfo:nil repeats:YES];
