@@ -19,9 +19,9 @@
 - (BOOL)isTaskStarted:(int)index;
 - (void)changeTaskName:(NSString *)newName atTaskIndex:(int)index;
 
-@property NSArray *pomoArray;
-@property NSArray *recessArray;
+@property (retain) NSArray *pomoArray;
+@property (retain) NSArray *recessArray;
 
-@property LSPomoTask *currentTask;
+@property (retain) LSPomoTask *currentTask;
 
 @end

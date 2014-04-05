@@ -26,7 +26,7 @@
 		2CCD582D170D3E5100FBB699 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCD582C170D3E5100FBB699 /* AudioToolbox.framework */; };
 		2CCD582F170D44CE00FBB699 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD582E170D44CE00FBB699 /* MainStoryboard.storyboard */; };
 		2CCD5837170D451600FBB699 /* LSPomoTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5830170D451500FBB699 /* LSPomoTask.m */; };
-		2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; };
+		2CCD5838170D451600FBB699 /* LSPomoCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5832170D451500FBB699 /* LSPomoCycle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2CCD5839170D451600FBB699 /* LSTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD5834170D451500FBB699 /* LSTaskViewController.m */; };
 		2CCD5841170D453B00FBB699 /* Pomodoro_Dimmed.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583C170D453A00FBB699 /* Pomodoro_Dimmed.png */; };
 		2CCD5842170D453B00FBB699 /* Pomodoro_Off.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCD583D170D453A00FBB699 /* Pomodoro_Off.png */; };
@@ -666,6 +666,7 @@
 				2C41B90B178BF3410065AB62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CC2A47A16A3D0010037CF76 /* Build configuration list for PBXProject "PomoTimer" */ = {
 			isa = XCConfigurationList;

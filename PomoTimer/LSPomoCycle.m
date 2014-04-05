@@ -69,12 +69,24 @@
         self.pomoArray = (NSArray *)pomoCycle;
         self.recessArray = (NSArray *)recessCycle;
         
+        
+        [firstPomo release];
+        [firstRecess release];
+        [secondPomo release];
+        [secondRecess release];
+        [thirdPomo release];
+        [thirdRecess release];
+        [fourthPomo release];
+        [intermission release];
+        [pomoCycle release];
+        [recessCycle release];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [super dealloc];
     self.currentTask = nil;
     self.pomoArray = nil;
     self.recessArray = nil;
